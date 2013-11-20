@@ -1,0 +1,20 @@
+#include "homescreen.h"
+#include "ui_homescreen.h"
+//#include "admin.h"
+
+HomeScreen::HomeScreen(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::HomeScreen)
+{
+    ui->setupUi(this);
+}
+
+HomeScreen::~HomeScreen()
+{
+    delete ui;
+}
+
+void HomeScreen::on_leUsername_editingFinished()
+{
+    ui->pbLogin->setEnabled(true);
+}
