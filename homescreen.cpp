@@ -16,6 +16,20 @@ HomeScreen::HomeScreen(QWidget *parent) :
     ui(new Ui::HomeScreen)
 {
     ui->setupUi(this);
+    db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setHostName("localhost");
+    db.setPort(3306);
+    db.setDatabaseName("account");
+    db.setUserName("root");
+    db.setPassword("root");
+    if(db.open())
+    {
+        cout<<"Database connected";
+    }
+    else
+    {
+        QMessageBox::critical(0, QObject::tr("Database Error"), db.lastError().text());
+    }
 }
 
 HomeScreen::~HomeScreen()
@@ -32,22 +46,18 @@ void HomeScreen::on_leUsername_editingFinished()
 void HomeScreen::on_pbCancel_clicked()
 {
     this->close();
+    db.close();
 }
 
 void HomeScreen::on_pbLogin_clicked()
 {
     if(ui->lePassword->text().isEmpty())
         ui->lStatus->setText("Enter your Password..");
-    if(createConnection())
+    if(login())
     {
-        cout<<"Function Returned";
-         this->close();
-//        Options *dialog = new Options;
-//        dialog->show();
+        this->close();
         AdminWindow *window = new AdminWindow;
         window->show();
-       //int result = QMessageBox::Information(this,tr("Login Info"), tr("Login Successful"), QMessageBox::Ok | QMessageBox::Escape);
-       //if(result == QMessageBox::Yes)
     }
 }
 
@@ -61,24 +71,30 @@ void HomeScreen::on_leUsername_textEdited(const QString &arg1)
 }
 
 
-bool HomeScreen::createConnection()
+//bool HomeScreen::createConnection()
+//{
+////    db = QSqlDatabase::addDatabase("QMYSQL");
+////    db.setHostName("localhost");
+////    db.setPort(3306);
+////    db.setDatabaseName("account");
+////    db.setUserName("root");
+////    db.setPassword("root");
+////    if(db.open())
+////    {
+////        cout<<"Database connected";
+////        return true;
+////    }
+////    else
+////    {
+////        QMessageBox::critical(0, QObject::tr("Database Error"), db.lastError().text());
+////        return false;
+////    }
+//}
+
+bool HomeScreen::login()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setPort(3306);
-    db.setDatabaseName("account");
-    db.setUserName("root");
-    db.setPassword("root");
-    db.open();
-    if(!db.open())
-    {
-        QMessageBox::critical(0, QObject::tr("Database Error"), db.lastError().text());
-        return false;
-    }
-    else
-        cout<<"Database connected";
     QSqlQuery query;
-    query.exec("SELECT username, password from admin");
+    query.exec("SELECT username, password from admin;");
     if(query.next())
     {
         cout<<"Query Executed";
@@ -89,13 +105,17 @@ bool HomeScreen::createConnection()
             {
                 cout<<"Login Successful";
                 ui->lStatus->setText("Login Successfull!!");
+                return true;
             }
             else
                 ui->lStatus->setText("Wrong Password");
         }
         else
             ui->lStatus->setText("Wrong Username");
+
     }
-    db.commit();
-    return true;
+
+    //int result = QMessageBox::Information(this,tr("Login Info"), tr("Login Successful"), QMessageBox::Ok | QMessageBox::Escape);
+    //if(result == QMessageBox::Yes)
+    return false;
 }

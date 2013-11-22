@@ -15,6 +15,16 @@ public :
 
 private slots:
 
+    void on_twStudents_clicked(const QModelIndex &index);
+
+    void on_twFaculty_clicked(const QModelIndex &index);
+
+    void on_twAccounts_clicked(const QModelIndex &index);
+
+    void on_pbStudents_clicked();
+
+    void on_tabWidget_tabCloseRequested(int index);
+
 private:
     Ui::adminWindow *ui;
 

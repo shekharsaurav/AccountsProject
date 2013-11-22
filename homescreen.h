@@ -27,10 +27,13 @@ private slots:
 
     void on_leUsername_textEdited(const QString &arg1);
 
-    bool createConnection();
+//    bool createConnection();
+
+    bool login();
 
 private:
     Ui::HomeScreen *ui;
+    QSqlDatabase db;
 };
 
 #endif // HOMESCREEN_H

@@ -290,8 +290,6 @@
        </item>
       </layout>
      </widget>
-     <zorder>layoutWidget</zorder>
-     <zorder>label</zorder>
     </widget>
    </widget>
    <widget class="QLabel" name="label">
@@ -351,12 +349,19 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <addaction name="separator"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>leUsername</tabstop>
+  <tabstop>lePassword</tabstop>
+  <tabstop>pbLogin</tabstop>
+  <tabstop>pbCancel</tabstop>
+  <tabstop>calendarWidget</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
