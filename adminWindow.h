@@ -27,6 +27,7 @@ private slots:
 
 private:
     Ui::adminWindow *ui;
+    int tabIndex;
 
 };
 

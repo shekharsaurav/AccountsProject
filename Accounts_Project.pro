@@ -16,14 +16,17 @@ TEMPLATE = app
 SOURCES += main.cpp \
     homescreen.cpp \
     options.cpp \
-    adminWindow.cpp
+    adminWindow.cpp \
+    admissionPage.cpp
 
 HEADERS  += homescreen.h \
     baseclass.h \
     admin.h \
     options.h \
-    adminWindow.h
+    adminWindow.h \
+    admissionPage.h
 
 FORMS    += homescreen.ui \
     options.ui \
-    adminWindow.ui
+    adminWindow.ui \
+    admissionPage.ui

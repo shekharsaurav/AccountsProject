@@ -2,10 +2,17 @@
 
 #include "adminWindow.h"
 #include "ui_adminWindow.h"
+#include "admissionPage.h"
+
+#include <iostream>
+
+using namespace std;
 
 AdminWindow::AdminWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::adminWindow)
 {
     ui->setupUi(this);
+    tabIndex = 1;
+    connect(ui->twStudents, SLOT(entered(const QModelIndex &index)), ui->pbStudents, SIGNAL(clicked()));
 }
 
 AdminWindow::~AdminWindow()
@@ -31,14 +38,20 @@ void AdminWindow::on_twAccounts_clicked(const QModelIndex &index)
 
 void AdminWindow::on_pbStudents_clicked()
 {
-    int i;
-    QWidget *page = new QWidget();
-    i = ui->tabWidget->insertTab(2 ,page, "New Tab");
-//    int index = ui->twStudents->currentIndex().row();
-//    switch(index)
-//    {
-//    case 0:
-//    }
+    QModelIndex index = ui->twStudents->currentIndex();
+    int i = index.row();
+    QTreeWidgetItem *item = ui->twStudents->currentItem();
+    QString word = item->text(0);
+
+    cout<<"index selected : "<< i;
+    switch(i)
+    {
+        case 4 : AdmissionPage *page = new AdmissionPage();
+                 tabIndex++;
+                 ui->tabWidget->insertTab(tabIndex ,page, word);
+                 ui->statusBar->showMessage(" New Admission Form" , 5000);
+                 break;
+    }
 }
 
 void AdminWindow::on_tabWidget_tabCloseRequested(int index)
