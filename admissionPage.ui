@@ -19,7 +19,7 @@
    <string>Form</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -30,6 +30,11 @@
      <height>601</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="autoFillBackground">
     <bool>true</bool>
    </property>
@@ -39,7 +44,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -62,6 +67,9 @@
          <kerning>true</kerning>
         </font>
        </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; color:#1e7f9a;&quot;&gt;KRISHNA KIDS' EDUCATIONAL POINT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
@@ -78,6 +86,9 @@
      </item>
      <item>
       <widget class="QLabel" name="lAdmissionForm">
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
        <property name="text">
         <string>Admission Form</string>
        </property>
@@ -101,6 +112,12 @@
      <font>
       <pointsize>13</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
     </property>
     <property name="frameShape">
      <enum>QFrame::HLine</enum>
@@ -135,6 +152,9 @@
         <height>111</height>
        </rect>
       </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -164,7 +184,7 @@
        <string>Ctrl+U</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -181,8 +201,11 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Name of Student</string>
+          <string>Name of Student*</string>
          </property>
          <property name="buddy">
           <cstring>leNameStudent</cstring>
@@ -198,6 +221,9 @@
              <pointsize>12</pointsize>
             </font>
            </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -206,6 +232,9 @@
             <font>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -216,6 +245,24 @@
              <pointsize>12</pointsize>
             </font>
            </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>SELECT</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Male</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Female</string>
+            </property>
+           </item>
           </widget>
          </item>
          <item>
@@ -225,14 +272,8 @@
              <pointsize>12</pointsize>
             </font>
            </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="leReligion">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
+           <property name="autoFillBackground">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -243,6 +284,21 @@
              <pointsize>12</pointsize>
             </font>
            </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leReligion">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -251,6 +307,9 @@
             <font>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -263,8 +322,11 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Date of Birth</string>
+          <string>Date of Birth*</string>
          </property>
          <property name="buddy">
           <cstring>dateEdit</cstring>
@@ -278,8 +340,11 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Gender</string>
+          <string>Gender*</string>
          </property>
          <property name="buddy">
           <cstring>cbGender</cstring>
@@ -293,6 +358,9 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
           <string>Class</string>
          </property>
@@ -302,26 +370,14 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="lReligion">
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Religion</string>
-         </property>
-         <property name="buddy">
-          <cstring>leReligion</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
         <widget class="QLabel" name="lBloodGrp">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
           </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
          </property>
          <property name="text">
           <string>Blood Group</string>
@@ -338,11 +394,32 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Nationality</string>
+          <string>Nationality*</string>
          </property>
          <property name="buddy">
           <cstring>leNationality</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lReligion">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Religion</string>
+         </property>
+         <property name="buddy">
+          <cstring>leReligion</cstring>
          </property>
         </widget>
        </item>
@@ -361,7 +438,7 @@
      <attribute name="label">
       <string>Parents' Details</string>
      </attribute>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -378,8 +455,11 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Father's Name</string>
+          <string>Father's Name*</string>
          </property>
          <property name="buddy">
           <cstring>leNameStudent</cstring>
@@ -395,6 +475,9 @@
              <pointsize>12</pointsize>
             </font>
            </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -403,6 +486,9 @@
             <font>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -413,6 +499,9 @@
              <pointsize>12</pointsize>
             </font>
            </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -421,6 +510,9 @@
             <font>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -433,8 +525,11 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Mother's Name</string>
+          <string>Mother's Name*</string>
          </property>
          <property name="buddy">
           <cstring>leNameStudent</cstring>
@@ -448,8 +543,11 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
-          <string>Father's Occupation</string>
+          <string>Father's Occupation*</string>
          </property>
          <property name="buddy">
           <cstring>leNameStudent</cstring>
@@ -463,6 +561,9 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
           <string>Mother's Occupation</string>
          </property>
@@ -475,80 +576,235 @@
      </widget>
     </widget>
     <widget class="QWidget" name="contactDetails">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>929</width>
+       <height>303</height>
+      </rect>
+     </property>
      <attribute name="label">
       <string>Contact Details</string>
      </attribute>
-     <widget class="QLabel" name="lBaseAdd">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>40</y>
-        <width>135</width>
-        <height>45</height>
+        <x>120</x>
+        <y>10</y>
+        <width>377</width>
+        <height>291</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Base Address</string>
-      </property>
-      <property name="buddy">
-       <cstring>leNameStudent</cstring>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="teBaseAdd">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>30</y>
-        <width>261</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lTownVillage">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>170</y>
-        <width>135</width>
-        <height>45</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Town / Village</string>
-      </property>
-      <property name="buddy">
-       <cstring>leNameStudent</cstring>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lBaseAdd">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Base Address*</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPlainTextEdit" name="teBaseAdd">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lTownVillage">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Town / Village*</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="leTown">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lState">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>State*</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="leState">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lPincode">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Pincode*</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lePincode">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhDigitsOnly</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lPhone">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Phone (Mob.)*</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="lePhone">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhDigitsOnly</set>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lPhone_2">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Alt - Phone(Mob.)</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="lePhone_2">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhDigitsOnly</set>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lEmail">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>E-Mail</string>
+         </property>
+         <property name="buddy">
+          <cstring>leNameStudent</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="leEmail">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhEmailCharactersOnly</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>22</x>
-      <y>105</y>
-      <width>910</width>
+      <x>21</x>
+      <y>100</y>
+      <width>911</width>
       <height>32</height>
      </rect>
     </property>
@@ -562,6 +818,9 @@
            <pointsize>12</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
           <string>Registration No. :</string>
          </property>
@@ -573,6 +832,9 @@
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -603,6 +865,9 @@
            <pointsize>12</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="text">
           <string>Date :</string>
          </property>
@@ -615,25 +880,103 @@
            <pointsize>12</pointsize>
           </font>
          </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
       </layout>
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pbReset">
+    <property name="geometry">
+     <rect>
+      <x>759</x>
+      <y>560</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Reset</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbSubmit">
+    <property name="geometry">
+     <rect>
+      <x>859</x>
+      <y>560</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Submit</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lMandatory">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>570</y>
+      <width>601</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>NOTE : (*) marked fields are mandatory fields. </string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>deDOB</tabstop>
   <tabstop>leNameStudent</tabstop>
   <tabstop>dateEdit</tabstop>
   <tabstop>cbGender</tabstop>
   <tabstop>leStd</tabstop>
-  <tabstop>leReligion</tabstop>
   <tabstop>leBloodGrp</tabstop>
-  <tabstop>leRegNo</tabstop>
   <tabstop>cbUpload</tabstop>
-  <tabstop>leNationality</tabstop>
+  <tabstop>leNameFather</tabstop>
+  <tabstop>leNameMother</tabstop>
+  <tabstop>leFatherOccupation</tabstop>
+  <tabstop>leMotherOccupation</tabstop>
+  <tabstop>teBaseAdd</tabstop>
+  <tabstop>leTown</tabstop>
+  <tabstop>leState</tabstop>
+  <tabstop>lePincode</tabstop>
+  <tabstop>lePhone</tabstop>
+  <tabstop>lePhone_2</tabstop>
+  <tabstop>leEmail</tabstop>
+  <tabstop>pbReset</tabstop>
+  <tabstop>pbSubmit</tabstop>
+  <tabstop>deDOB</tabstop>
+  <tabstop>leRegNo</tabstop>
  </tabstops>
  <resources/>
  <connections/>

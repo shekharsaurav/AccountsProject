@@ -33,7 +33,6 @@ private slots:
 
 private:
     Ui::HomeScreen *ui;
-    QSqlDatabase db;
 };
 
 #endif // HOMESCREEN_H

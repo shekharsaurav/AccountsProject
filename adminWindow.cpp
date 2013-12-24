@@ -11,6 +11,12 @@ using namespace std;
 AdminWindow::AdminWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::adminWindow)
 {
     ui->setupUi(this);
+    scrollArea.setWidget(this);
+    scrollArea.viewport()->setBackgroundRole(QPalette::Dark);
+    scrollArea.viewport()->setAutoFillBackground(true);
+    scrollArea.setWindowTitle(QObject::tr("Krishna Kids' Educational Point"));
+    scrollArea.setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    scrollArea.show();
     tabIndex = 1;
     connect(ui->twStudents, SLOT(entered(const QModelIndex &index)), ui->pbStudents, SIGNAL(clicked()));
 }
@@ -46,7 +52,7 @@ void AdminWindow::on_pbStudents_clicked()
     cout<<"index selected : "<< i;
     switch(i)
     {
-        case 4 : AdmissionPage *page = new AdmissionPage();
+        case 0 : AdmissionPage *page = new AdmissionPage();
                  tabIndex++;
                  ui->tabWidget->insertTab(tabIndex ,page, word);
                  ui->statusBar->showMessage(" New Admission Form" , 5000);

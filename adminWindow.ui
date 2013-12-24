@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1400</width>
-    <height>758</height>
+    <width>1354</width>
+    <height>724</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,6 +29,9 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <widget class="QTabWidget" name="tabWidget">
     <property name="enabled">
      <bool>true</bool>
@@ -37,7 +40,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>1350</width>
+      <width>1341</width>
       <height>671</height>
      </rect>
     </property>
@@ -46,6 +49,9 @@
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -57,462 +63,476 @@
      <bool>true</bool>
     </property>
     <widget class="QWidget" name="tabWelcome">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
      <attribute name="title">
       <string>Welcome</string>
      </attribute>
-     <widget class="QLabel" name="lOrgName">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>436</width>
-        <height>44</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Economica</family>
-        <pointsize>28</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-        <underline>false</underline>
-        <kerning>true</kerning>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;KRISHNA KIDS' EDUCATIONAL POINT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-      <property name="indent">
-       <number>0</number>
-      </property>
-     </widget>
-     <widget class="Line" name="line">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>1321</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QCalendarWidget" name="calendarWidget">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>501</width>
-        <height>531</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="Line" name="line_2">
-      <property name="geometry">
-       <rect>
-        <x>533</x>
-        <y>70</y>
-        <width>20</width>
-        <height>561</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lSelection">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>70</y>
-        <width>211</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Select Task :</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>571</x>
-        <y>110</y>
-        <width>651</width>
-        <height>511</height>
+        <x>240</x>
+        <y>10</y>
+        <width>931</width>
+        <height>611</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QGroupBox" name="groupBox">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QTreeWidget" name="twStudents">
-            <property name="font">
-             <font>
-              <family>Ubuntu</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <property name="lineWidth">
-             <number>1</number>
-            </property>
-            <property name="midLineWidth">
-             <number>0</number>
-            </property>
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarAsNeeded</enum>
-            </property>
-            <property name="tabKeyNavigation">
-             <bool>true</bool>
-            </property>
-            <property name="alternatingRowColors">
-             <bool>true</bool>
-            </property>
-            <property name="selectionMode">
-             <enum>QAbstractItemView::SingleSelection</enum>
-            </property>
-            <property name="textElideMode">
-             <enum>Qt::ElideRight</enum>
-            </property>
-            <property name="autoExpandDelay">
-             <number>-1</number>
-            </property>
-            <property name="uniformRowHeights">
-             <bool>false</bool>
-            </property>
-            <property name="sortingEnabled">
-             <bool>true</bool>
-            </property>
-            <property name="animated">
-             <bool>true</bool>
-            </property>
-            <property name="allColumnsShowFocus">
-             <bool>false</bool>
-            </property>
-            <property name="expandsOnDoubleClick">
-             <bool>false</bool>
-            </property>
-            <property name="columnCount">
-             <number>1</number>
-            </property>
-            <column>
-             <property name="text">
-              <string>Students</string>
-             </property>
-             <property name="font">
-              <font>
-               <family>Economica</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="background">
-              <color>
-               <red>31</red>
-               <green>126</green>
-               <blue>166</blue>
-              </color>
-             </property>
-            </column>
-            <item>
-             <property name="text">
-              <string>Update Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Show Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Grade Submission</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Fee Deposite</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Admission</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignBottom">
-           <widget class="QPushButton" name="pbStudents">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>OK</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox">
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QTreeWidget" name="twFaculty">
-            <property name="font">
-             <font>
-              <family>Ubuntu</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <property name="lineWidth">
-             <number>1</number>
-            </property>
-            <property name="midLineWidth">
-             <number>0</number>
-            </property>
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarAsNeeded</enum>
-            </property>
-            <property name="tabKeyNavigation">
-             <bool>true</bool>
-            </property>
-            <property name="alternatingRowColors">
-             <bool>true</bool>
-            </property>
-            <property name="textElideMode">
-             <enum>Qt::ElideRight</enum>
-            </property>
-            <property name="autoExpandDelay">
-             <number>-1</number>
-            </property>
-            <property name="uniformRowHeights">
-             <bool>false</bool>
-            </property>
-            <property name="sortingEnabled">
-             <bool>true</bool>
-            </property>
-            <property name="animated">
-             <bool>true</bool>
-            </property>
-            <property name="allColumnsShowFocus">
-             <bool>false</bool>
-            </property>
-            <property name="expandsOnDoubleClick">
-             <bool>false</bool>
-            </property>
-            <property name="columnCount">
-             <number>1</number>
-            </property>
-            <column>
-             <property name="text">
-              <string>Faculty</string>
-             </property>
-             <property name="font">
-              <font>
-               <family>Economica</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="background">
-              <color>
-               <red>31</red>
-               <green>126</green>
-               <blue>166</blue>
-              </color>
-             </property>
-            </column>
-            <item>
-             <property name="text">
-              <string>Update Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Show Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Renumeration</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Remove Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Add Profile</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignBottom">
-           <widget class="QPushButton" name="pbFaculty">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>OK</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox">
-         <property name="enabled">
+        <widget class="QLabel" name="lOrgName">
+         <property name="font">
+          <font>
+           <family>Economica</family>
+           <pointsize>28</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+           <underline>false</underline>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="autoFillBackground">
           <bool>true</bool>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QTreeWidget" name="twAccounts">
-            <property name="font">
-             <font>
-              <family>Ubuntu</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <property name="lineWidth">
-             <number>1</number>
-            </property>
-            <property name="midLineWidth">
-             <number>0</number>
-            </property>
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarAsNeeded</enum>
-            </property>
-            <property name="tabKeyNavigation">
-             <bool>true</bool>
-            </property>
-            <property name="alternatingRowColors">
-             <bool>true</bool>
-            </property>
-            <property name="textElideMode">
-             <enum>Qt::ElideRight</enum>
-            </property>
-            <property name="autoExpandDelay">
-             <number>-1</number>
-            </property>
-            <property name="uniformRowHeights">
-             <bool>false</bool>
-            </property>
-            <property name="sortingEnabled">
-             <bool>true</bool>
-            </property>
-            <property name="animated">
-             <bool>true</bool>
-            </property>
-            <property name="allColumnsShowFocus">
-             <bool>false</bool>
-            </property>
-            <property name="expandsOnDoubleClick">
-             <bool>false</bool>
-            </property>
-            <property name="columnCount">
-             <number>1</number>
-            </property>
-            <column>
-             <property name="text">
-              <string>Accounts</string>
-             </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;KRISHNA KIDS' EDUCATIONAL POINT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="indent">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QCalendarWidget" name="calendarWidget"/>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="lSelection">
              <property name="font">
               <font>
                <family>Economica</family>
-               <pointsize>16</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
+               <pointsize>18</pointsize>
               </font>
              </property>
-             <property name="background">
-              <color>
-               <red>31</red>
-               <green>126</green>
-               <blue>166</blue>
-              </color>
+             <property name="autoFillBackground">
+              <bool>true</bool>
              </property>
-            </column>
-            <item>
              <property name="text">
-              <string>Yearly View</string>
+              <string>Select Task :</string>
              </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Monthly View</string>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxStudents">
+             <property name="autoFillBackground">
+              <bool>true</bool>
              </property>
-            </item>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignBottom">
-           <widget class="QPushButton" name="pbAccounts">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>OK</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QTreeWidget" name="twStudents">
+                <property name="font">
+                 <font>
+                  <family>Ubuntu</family>
+                  <pointsize>11</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>1</number>
+                </property>
+                <property name="midLineWidth">
+                 <number>0</number>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="tabKeyNavigation">
+                 <bool>true</bool>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SingleSelection</enum>
+                </property>
+                <property name="textElideMode">
+                 <enum>Qt::ElideRight</enum>
+                </property>
+                <property name="autoExpandDelay">
+                 <number>-1</number>
+                </property>
+                <property name="uniformRowHeights">
+                 <bool>false</bool>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>false</bool>
+                </property>
+                <property name="animated">
+                 <bool>true</bool>
+                </property>
+                <property name="allColumnsShowFocus">
+                 <bool>false</bool>
+                </property>
+                <property name="expandsOnDoubleClick">
+                 <bool>false</bool>
+                </property>
+                <property name="columnCount">
+                 <number>1</number>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>Students</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Economica</family>
+                   <pointsize>16</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="background">
+                  <color>
+                   <red>31</red>
+                   <green>126</green>
+                   <blue>166</blue>
+                  </color>
+                 </property>
+                </column>
+                <item>
+                 <property name="text">
+                  <string>Admission</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fee Deposite</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Grade Submission</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Show Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Update Profile</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbStudents">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>OK</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxFaculty">
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QTreeWidget" name="twFaculty">
+                <property name="font">
+                 <font>
+                  <family>Ubuntu</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>1</number>
+                </property>
+                <property name="midLineWidth">
+                 <number>0</number>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="tabKeyNavigation">
+                 <bool>true</bool>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="textElideMode">
+                 <enum>Qt::ElideRight</enum>
+                </property>
+                <property name="autoExpandDelay">
+                 <number>-1</number>
+                </property>
+                <property name="uniformRowHeights">
+                 <bool>false</bool>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>false</bool>
+                </property>
+                <property name="animated">
+                 <bool>true</bool>
+                </property>
+                <property name="allColumnsShowFocus">
+                 <bool>false</bool>
+                </property>
+                <property name="expandsOnDoubleClick">
+                 <bool>false</bool>
+                </property>
+                <property name="columnCount">
+                 <number>1</number>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>Faculty</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Economica</family>
+                   <pointsize>16</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="background">
+                  <color>
+                   <red>31</red>
+                   <green>126</green>
+                   <blue>166</blue>
+                  </color>
+                 </property>
+                </column>
+                <item>
+                 <property name="text">
+                  <string>Add Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Remove Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Renumeration</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Show Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Update Profile</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignBottom">
+               <widget class="QPushButton" name="pbFaculty">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>OK</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxAccounts">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QTreeWidget" name="twAccounts">
+                <property name="font">
+                 <font>
+                  <family>Ubuntu</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>1</number>
+                </property>
+                <property name="midLineWidth">
+                 <number>0</number>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="tabKeyNavigation">
+                 <bool>true</bool>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="textElideMode">
+                 <enum>Qt::ElideRight</enum>
+                </property>
+                <property name="autoExpandDelay">
+                 <number>-1</number>
+                </property>
+                <property name="uniformRowHeights">
+                 <bool>false</bool>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>false</bool>
+                </property>
+                <property name="animated">
+                 <bool>true</bool>
+                </property>
+                <property name="allColumnsShowFocus">
+                 <bool>false</bool>
+                </property>
+                <property name="expandsOnDoubleClick">
+                 <bool>false</bool>
+                </property>
+                <property name="columnCount">
+                 <number>1</number>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>Accounts</string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Economica</family>
+                   <pointsize>16</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="background">
+                  <color>
+                   <red>31</red>
+                   <green>126</green>
+                   <blue>166</blue>
+                  </color>
+                 </property>
+                </column>
+                <item>
+                 <property name="text">
+                  <string>Monthly View</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Yearly View</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignBottom">
+               <widget class="QPushButton" name="pbAccounts">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>true</bool>
+                </property>
+                <property name="text">
+                 <string>OK</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
-     <zorder>layoutWidget</zorder>
-     <zorder>lOrgName</zorder>
-     <zorder>calendarWidget</zorder>
-     <zorder>line_2</zorder>
-     <zorder>lSelection</zorder>
-     <zorder>line</zorder>
     </widget>
    </widget>
   </widget>
@@ -521,13 +541,19 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1400</width>
+     <width>1354</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="autoFillBackground">
     <bool>true</bool>
    </property>
   </widget>
@@ -550,12 +576,12 @@
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1119</x>
-     <y>277</y>
+     <x>1081</x>
+     <y>322</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1166</x>
-     <y>311</y>
+     <x>1167</x>
+     <y>271</y>
     </hint>
    </hints>
   </connection>
@@ -566,12 +592,12 @@
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1132</x>
-     <y>474</y>
+     <x>1081</x>
+     <y>494</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1170</x>
-     <y>482</y>
+     <x>1167</x>
+     <y>494</y>
     </hint>
    </hints>
   </connection>
@@ -582,8 +608,8 @@
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1127</x>
-     <y>647</y>
+     <x>1081</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>1162</x>

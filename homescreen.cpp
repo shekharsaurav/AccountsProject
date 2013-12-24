@@ -1,12 +1,13 @@
 #include "homescreen.h"
 #include "ui_homescreen.h"
-#include <QtSql/QSqlDatabase>
-#include <QtSql/QSqlError>
+#include "adminWindow.h"
+#include "dbConnection.h"
+
 #include <QMessageBox>
 //#include <QDebug>
 #include <iostream>
 #include <QSqlQuery>
-#include "adminWindow.h"
+#include <QScrollArea>
 
 using namespace std;
 //#include "admin.h"
@@ -16,20 +17,22 @@ HomeScreen::HomeScreen(QWidget *parent) :
     ui(new Ui::HomeScreen)
 {
     ui->setupUi(this);
-    db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setPort(3306);
-    db.setDatabaseName("account");
-    db.setUserName("root");
-    db.setPassword("root");
-    if(db.open())
-    {
-        cout<<"Database connected";
-    }
-    else
-    {
-        QMessageBox::critical(0, QObject::tr("Database Error"), db.lastError().text());
-    }
+
+
+//    db = QSqlDatabase::addDatabase("QMYSQL");
+//    db.setHostName("localhost");
+//    db.setPort(3306);
+//    db.setDatabaseName("account");
+//    db.setUserName("root");
+//    db.setPassword("root");
+//    if(db.open())
+//    {
+//        cout<<"Database connected";
+//    }
+//    else
+//    {
+//        QMessageBox::critical(0, QObject::tr("Database Error"), db.lastError().text());
+//    }
 }
 
 HomeScreen::~HomeScreen()
@@ -46,7 +49,7 @@ void HomeScreen::on_leUsername_editingFinished()
 void HomeScreen::on_pbCancel_clicked()
 {
     this->close();
-    db.close();
+
 }
 
 void HomeScreen::on_pbLogin_clicked()
@@ -57,7 +60,7 @@ void HomeScreen::on_pbLogin_clicked()
     {
         this->close();
         AdminWindow *window = new AdminWindow;
-        window->show();
+        //window->show();
     }
 }
 

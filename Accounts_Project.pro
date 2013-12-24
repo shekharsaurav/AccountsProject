@@ -15,18 +15,27 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     homescreen.cpp \
-    options.cpp \
     adminWindow.cpp \
-    admissionPage.cpp
+    admissionPage.cpp \
+    dbConnection.cpp \
+    students.cpp \
+    standard.cpp \
+    reciept.cpp \
+    feeStructure.cpp \
+    address.cpp
 
 HEADERS  += homescreen.h \
     baseclass.h \
     admin.h \
-    options.h \
     adminWindow.h \
-    admissionPage.h
+    admissionPage.h \
+    dbConnection.h \
+    students.h \
+    standard.h \
+    reciept.h \
+    feeStructure.h \
+    address.h
 
 FORMS    += homescreen.ui \
-    options.ui \
     adminWindow.ui \
     admissionPage.ui

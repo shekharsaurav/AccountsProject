@@ -2,6 +2,7 @@
 #define ADMINWINDOW_H
 
 #include <QMainWindow>
+#include <QScrollArea>
 
 #include "ui_adminWindow.h"
 
@@ -28,6 +29,7 @@ private slots:
 private:
     Ui::adminWindow *ui;
     int tabIndex;
+    QScrollArea scrollArea;
 
 };
 

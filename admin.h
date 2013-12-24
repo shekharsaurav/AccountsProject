@@ -3,9 +3,9 @@
 
 class Admin
 {
-    String name;
-    String usrname;
-    String pass;
+    QString name;
+    QString usrname;
+    QString pass;
         
 public :
 

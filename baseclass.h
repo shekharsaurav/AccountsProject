@@ -3,13 +3,13 @@
 
 class Address
 {
-    String baseAdd;
-    String town;
+    QString baseAdd;
+    QString town;
     long pin;
-    String state;
+    QString state;
 
 public :
-    Address(String base = NULL, String t = NULL, long p = 0, String st = NULL)
+    Address(QString base = NULL, QString t = NULL, long p = 0, QString st = NULL)
     {
         baseAdd = base;
         town = t;
@@ -17,22 +17,22 @@ public :
         state = st;
     }
 
-    String getBaseAdd()
+    QString getBaseAdd()
     {
         return baseAdd;
     }
 
-    void setBaseAdd(String base)
+    void setBaseAdd(QString base)
     {
         baseAdd = base;
     }
 
-    String getTown()
+    QQString getTown()
     {
         return town;
     }
 
-    void setTown(String t)
+    void setTown(QString t)
     {
         town = t;
     }
@@ -47,12 +47,12 @@ public :
         pin = p;
     }
 
-    String getState()
+    QString getState()
     {
         return state;
     }
 
-    void setState(String st)
+    void setState(QString st)
     {
         state = st;
     }
@@ -109,14 +109,14 @@ public :
 
 class Standard
 {
-    String std;
+    QString std;
     int strength;
-    String classTeacher;
-    String subjects[10];
+    QString classTeacher;
+    QString subjects[10];
     FeeStructure struc;
 
 public :
-    Standard(String std = NULL, int str = 0, String cTeacher = NULL, String sub[] = {NULL}, FeeStructure struc)
+    Standard(QString std = NULL, int str = 0, QString cTeacher = NULL, QString sub[] = {NULL}, FeeStructure struc)
     {
         this->std = std;
         strength = str;
@@ -125,7 +125,7 @@ public :
         this->struc = struc;
     }
 
-    void getStandard(String std = NULL, int str = 0, String cTeacher = NULL, String sub[] = {NULL}, FeeStructure struc)
+    void getStandard(QString std = NULL, int str = 0, QString cTeacher = NULL, QString sub[] = {NULL}, FeeStructure struc)
     {
         std = this->std;
         str = strength;
@@ -134,7 +134,7 @@ public :
         struc = this->struc;
     }
 
-    void SetStandard(String std = NULL, int str = 0, String cTeacher = NULL, String sub[] = {NULL}, FeeStructure struc)
+    void SetStandard(QString std = NULL, int str = 0, QString cTeacher = NULL, QString sub[] = {NULL}, FeeStructure struc)
     {
         this->std = std;
         strength = str;
@@ -147,7 +147,7 @@ public :
 class Reciept
 {
     int recieptNo;
-    QDateTime date;
+    QDate date;
     int roll;
     double regFee;
     double tutFee;
@@ -161,7 +161,7 @@ class Reciept
     double othReciept;
 
 public :
-    Reciept(double rno, QDateTime d, int r, double rf, double tf, double dues, double gf, double ef, double raf, double lf, double df, double cf, double oth)
+    Reciept(double rno, QDate d, int r, double rf, double tf, double dues, double gf, double ef, double raf, double lf, double df, double cf, double oth)
     {
         recieptNo = rno;
         date = d;
@@ -178,7 +178,7 @@ public :
         othReciept = oth;
     }
 
-    void generateReciept(double rno, QDateTime d, int r, double rf, double tf, double dues, double gf, double ef, double raf, double lf, double df, double cf, double oth)
+    void generateReciept(double rno, QDate d, int r, double rf, double tf, double dues, double gf, double ef, double raf, double lf, double df, double cf, double oth)
     {
         recieptNo = rno;
         date = d;
@@ -195,7 +195,7 @@ public :
         othReciept = oth;
     }
 
-    void getReciept(double rno, QDateTime d, int r, double rf, double tf, double dues, double gf, double ef, double raf, double lf, double df, double cf, double oth)
+    void getReciept(double rno, QDate d, int r, double rf, double tf, double dues, double gf, double ef, double raf, double lf, double df, double cf, double oth)
     {
         rno = recieptNo;
         d = date;
@@ -216,20 +216,20 @@ public :
 class Students : Standard
 {
     long regNo;
-    QDateTime regDate;
-    String name;
-    QDateTime dob;
-    String bloodGrp;
-    String mother;
-    String father;
+    QDate regDate;
+    QString name;
+    QDate dob;
+    QString bloodGrp;
+    QString mother;
+    QString father;
     Address add;
-    String email;
+    QString email;
     long contact;
     int roll;
-    String image;
+    QString image;
 
 public :
-    Students(long rno, QDateTime rdate, String nam, QDateTime dob, String blood, String mother, String father, Address add, String email, long contact, int roll, String image)
+    Students(long rno, QDate rdate, QString nam, QDate dob, QString blood, QString mother, QString father, Address add, QString email, long contact, int roll, QString image)
     {
         regNo = rno;
         regDate = rdate;
@@ -245,7 +245,7 @@ public :
         this->image = image;
     }
 
-    void setStudent(long rno, QDateTime rdate, String nam, QDateTime dob, String blood, String mother, String father, Address add, String email, long contact, int roll, String image)
+    void setStudent(long rno, QDate rdate, QString nam, QDate dob, QString blood, QString mother, QString father, Address add, QString email, long contact, int roll, QString image)
     {
         regNo = rno;
         regDate = rdate;
@@ -261,7 +261,7 @@ public :
         this->image = image;
     }
 
-    void getStudent(long rno, QDateTime rdate, String nam, QDateTime dob, String blood, String mother, String father, Address add, String email, long contact, int roll, String image)
+    void getStudent(long rno, QDate rdate, QString nam, QDate dob, QString blood, QString mother, QString father, Address add, QString email, long contact, int roll, QString image)
     {
         rno = regNoo;
         rdate = regDate;
