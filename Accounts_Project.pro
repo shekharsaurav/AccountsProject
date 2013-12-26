@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     standard.cpp \
     reciept.cpp \
     feeStructure.cpp \
-    address.cpp
+    address.cpp \
+    studentsprofile.cpp
 
 HEADERS  += homescreen.h \
     admin.h \
@@ -33,8 +34,10 @@ HEADERS  += homescreen.h \
     standard.h \
     reciept.h \
     feeStructure.h \
-    address.h
+    address.h \
+    studentsprofile.h
 
 FORMS    += homescreen.ui \
     adminWindow.ui \
-    admissionPage.ui
+    admissionPage.ui \
+    studentsprofile.ui

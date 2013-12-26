@@ -13,6 +13,7 @@
 #include "ui_admissionPage.h"
 #include "dbConnection.h"
 #include "students.h"
+#include "adminWindow.h"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ void AdmissionPage::on_cbUpload_clicked()
     pm.load(fileName, 0, Qt::AutoColor);
     pm.scaled(121, 141);
     ui->lPhoto->setPixmap(pm);
+    AdminWindow::statusBar()->showMessage(tr(" Photo Uploaded"), 5000);
 }
 
 void AdmissionPage::on_pbSubmit_clicked()
@@ -58,6 +60,7 @@ void AdmissionPage::on_pbSubmit_clicked()
             ui->lePhone->text().isEmpty())
     {
          QMessageBox::critical(0, tr("Submit Faiure"),tr("Some mandatory fields are empty!!"));
+         AdminWindow::statusBar()->showMessage(tr(" Some mandatory fields are empty!"), 5000 );
     }
     else
     {
@@ -112,10 +115,12 @@ void AdmissionPage::on_pbSubmit_clicked()
             if(result != -1)
             {
                 QMessageBox::about(0, tr("Submit Successful"),tr("Student's Details generated in database successfully.."));
+                AdminWindow::statusBar()->showMessage(tr(" Database updated successfully!"), 5000 );
             }
             else
             {
                  QMessageBox::critical(0, tr("Submit failed"), query.lastError().text());
+                 AdminWindow::statusBar()->showMessage(tr(" Submission failed!"), 5000 );
             }
         }
     }
@@ -142,6 +147,7 @@ void AdmissionPage::on_pbReset_clicked()
     ui->lePhone_2->setText("");
     ui->leEmail->setText("");
     ui->lPhoto->setText("Photo");
+    AdminWindow::statusBar()->showMessage(tr(" All fields reset!"), 5000 );
 }
 
 

@@ -3,6 +3,7 @@
 #include "adminWindow.h"
 #include "ui_adminWindow.h"
 #include "admissionPage.h"
+#include "studentsprofile.h"
 
 #include <iostream>
 
@@ -55,7 +56,14 @@ void AdminWindow::on_pbStudents_clicked()
         case 0 : AdmissionPage *page = new AdmissionPage();
                  tabIndex++;
                  ui->tabWidget->insertTab(tabIndex ,page, word);
+                 ui->tabWidget->;
                  ui->statusBar->showMessage(" New Admission Form" , 5000);
+                 break;
+
+        case 3 : StudentsProfile *profile = new StudentsProfile();
+                 tabIndex++;
+                 ui->tabWidget->insertTab(tabIndex, profile, word);
+                 ui->statusBar->showMessage(" Student's profile displayed.");
                  break;
     }
 }
