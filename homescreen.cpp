@@ -10,7 +10,6 @@
 #include <QScrollArea>
 
 using namespace std;
-//#include "admin.h"
 
 HomeScreen::HomeScreen(QWidget *parent) :
     QMainWindow(parent),

@@ -29,7 +29,7 @@ AdmissionPage::~AdmissionPage()
 
 void AdmissionPage::on_cbUpload_clicked()
 {
-    fileName = QFileDialog::getOpenFileName(this, tr("Upload Picture"), ".", tr("Image files (*.jpeg, *.png, *.jpg, *.bmp,  "));
+    fileName = QFileDialog::getOpenFileName(this, tr("Upload Picture"), ".", tr("Image files (*.jpeg, *.png, *.jpg, *.bmp"));
     QPixmap pm;
     pm.load(fileName, 0, Qt::AutoColor);
     pm.scaled(121, 141);
@@ -104,4 +104,23 @@ void AdmissionPage::on_pbSubmit_clicked()
              QMessageBox::critical(0, tr("Submit failed"), query.lastError().text());
         }
     }
+}
+
+void AdmissionPage::on_pbReset_clicked()
+{
+    ui->leNameStudent->setText("");
+    ui->deDOB->setDate("01/01/00");
+    ui->cbGender->setCurrentIndex(0);
+    ui->leStd->setText("");
+    ui->leBloodGrp->setText("");
+    ui->leReligion->setText("");
+    ui->leNationality->setText("");
+    ui->leNameFather->setText("");
+    ui->leFatherOccupation->setText("");
+    ui->leNameMother->setText("");
+    ui->leMotherOccupation->setText("");
+    ui->teBaseAdd->setPlainText("");
+    ui->leTown->setText("");
+    ui->lePincode->setText("");
+    ui->set
 }

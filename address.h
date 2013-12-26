@@ -30,6 +30,8 @@ public :
     QString getState();
 
     void setState(QString st);
+
+    friend class AdmissionPage;
 };
 
 #endif // ADDRESS_H

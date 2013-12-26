@@ -25,7 +25,6 @@ SOURCES += main.cpp \
     address.cpp
 
 HEADERS  += homescreen.h \
-    baseclass.h \
     admin.h \
     adminWindow.h \
     admissionPage.h \
