@@ -21,9 +21,17 @@ private slots:
 
     void on_pbSubmit_clicked();
 
+    void on_pbReset_clicked();
+    
 private:
     Ui::admissionPage *ui;
+
     QString fileName;
+
+    QPixmap pm;
+
+    QString copyImage(QString);
+
 };
 
 #endif // ADMISSIONPAGE_H

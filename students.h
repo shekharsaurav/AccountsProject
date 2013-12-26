@@ -25,8 +25,8 @@ class Students : public Standard
     QString occpFather;
     Address add;
     QString email;
-    long contact1;
-    long contact2;
+    qlonglong contact1;
+    qlonglong contact2;
     int roll;
     QString image;
 

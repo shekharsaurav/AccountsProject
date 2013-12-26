@@ -126,7 +126,7 @@
      <enum>QFrame::Raised</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="tabSpacing">
      <number>3</number>
@@ -241,6 +241,19 @@
            </property>
            <property name="autoFillBackground">
             <bool>true</bool>
+           </property>
+           <property name="displayFormat">
+            <string>dd/MM/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+           <property name="date">
+            <date>
+             <year>2000</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
            </property>
           </widget>
          </item>
@@ -889,6 +902,12 @@
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
+         <property name="displayFormat">
+          <string>dd/MM/yyyy</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
       </layout>
@@ -967,7 +986,8 @@
   <tabstop>cbGender</tabstop>
   <tabstop>leStd</tabstop>
   <tabstop>leBloodGrp</tabstop>
-  <tabstop>cbUpload</tabstop>
+  <tabstop>leReligion</tabstop>
+  <tabstop>leNationality</tabstop>
   <tabstop>leNameFather</tabstop>
   <tabstop>leNameMother</tabstop>
   <tabstop>leFatherOccupation</tabstop>
@@ -979,6 +999,7 @@
   <tabstop>lePhone</tabstop>
   <tabstop>lePhone_2</tabstop>
   <tabstop>leEmail</tabstop>
+  <tabstop>cbUpload</tabstop>
   <tabstop>pbReset</tabstop>
   <tabstop>pbSubmit</tabstop>
   <tabstop>deRegDate</tabstop>
