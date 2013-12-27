@@ -21,9 +21,18 @@ public:
 
     void showProfile(long reqStudent, int index, Ui::adminWindow *adUi);
 
+private slots:
+    void on_pbClose_clicked();
+
+    void on_pbUpdate_clicked();
+
 private:
     Ui::StudentsProfile *ui;
 
+    Ui::adminWindow *pUi;
+
+    int tabId;
 };
 
 #endif // STUDENTSPROFILE_H
+

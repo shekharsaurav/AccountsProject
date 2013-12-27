@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StudentsProfile</class>
- <widget class="QWidget" name="StudentsProfile">
+ <class>UpdateStudentProfile</class>
+ <widget class="QWidget" name="UpdateStudentProfile">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>1350</width>
-    <height>631</height>
+    <height>690</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="layoutWidget_6">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -45,9 +45,9 @@
       <height>77</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="lOrgNameP">
+      <widget class="QLabel" name="lOrgName">
        <property name="font">
         <font>
          <family>Economica</family>
@@ -77,12 +77,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="lStudentProfile">
+      <widget class="QLabel" name="lUpdateProfileForm">
        <property name="autoFillBackground">
         <bool>true</bool>
        </property>
        <property name="text">
-        <string>Student's Profile</string>
+        <string>Update Student Profile</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -91,13 +91,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QToolBox" name="tbStudentProfile">
+   <widget class="QToolBox" name="tbAdmissionForm">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>140</y>
       <width>931</width>
-      <height>421</height>
+      <height>401</height>
      </rect>
     </property>
     <property name="font">
@@ -118,24 +118,24 @@
      <enum>QFrame::Raised</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="tabSpacing">
      <number>3</number>
     </property>
-    <widget class="QWidget" name="studentDetailsP">
+    <widget class="QWidget" name="studentDetails">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
        <width>929</width>
-       <height>323</height>
+       <height>303</height>
       </rect>
      </property>
      <attribute name="label">
       <string>Student's Details</string>
      </attribute>
-     <widget class="QLabel" name="lPhotoP">
+     <widget class="QLabel" name="lPhoto">
       <property name="geometry">
        <rect>
         <x>740</x>
@@ -163,7 +163,26 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QWidget" name="layoutWidget_7">
+     <widget class="QCommandLinkButton" name="cbUpload">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>120</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>Upload</string>
+      </property>
+      <property name="shortcut">
+       <string>Ctrl+U</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_2">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -172,9 +191,9 @@
         <height>261</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_4">
+      <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <widget class="QLabel" name="lNameP">
+        <widget class="QLabel" name="lName">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -192,33 +211,27 @@
         </widget>
        </item>
        <item row="0" column="1" rowspan="7">
-        <layout class="QVBoxLayout" name="verticalLayout_5">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLineEdit" name="leNameStudentP">
+          <widget class="QLineEdit" name="leNameStudent">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="deDOBP">
+          <widget class="QDateEdit" name="deDOB">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
            <property name="displayFormat">
@@ -237,7 +250,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leGenderP">
+          <widget class="QComboBox" name="cbGender">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -246,67 +259,67 @@
            <property name="autoFillBackground">
             <bool>true</bool>
            </property>
-           <property name="readOnly">
+           <item>
+            <property name="text">
+             <string>SELECT</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Male</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Female</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leStd">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="autoFillBackground">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leStdP">
+          <widget class="QLineEdit" name="leBloodGrp">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leBloodGrpP">
+          <widget class="QLineEdit" name="leReligion">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leReligionP">
+          <widget class="QLineEdit" name="leNationality">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="leNationalityP">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
@@ -314,7 +327,7 @@
         </layout>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="lDOBP">
+        <widget class="QLabel" name="lDOB">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -332,7 +345,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="lGenderP">
+        <widget class="QLabel" name="lGender">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -350,7 +363,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="lStdP">
+        <widget class="QLabel" name="lStd">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -368,7 +381,7 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="lBloodGrpP">
+        <widget class="QLabel" name="lBloodGrp">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -386,7 +399,7 @@
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="lNationalityP">
+        <widget class="QLabel" name="lNationality">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -404,7 +417,7 @@
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="lReligionP">
+        <widget class="QLabel" name="lReligion">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -424,19 +437,19 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="parentsDetailsP">
+    <widget class="QWidget" name="parentsDetails">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
        <width>929</width>
-       <height>323</height>
+       <height>303</height>
       </rect>
      </property>
      <attribute name="label">
       <string>Parents' Details</string>
      </attribute>
-     <widget class="QWidget" name="layoutWidget_8">
+     <widget class="QWidget" name="layoutWidget_3">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -445,9 +458,9 @@
         <height>201</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_5">
+      <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <widget class="QLabel" name="lNameFatherP">
+        <widget class="QLabel" name="lNameFather">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -465,63 +478,51 @@
         </widget>
        </item>
        <item row="0" column="1" rowspan="4">
-        <layout class="QVBoxLayout" name="verticalLayout_6">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QLineEdit" name="leNameFatherP">
+          <widget class="QLineEdit" name="leNameFather">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leNameMotherP">
+          <widget class="QLineEdit" name="leNameMother">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leFatherOccupationP">
+          <widget class="QLineEdit" name="leFatherOccupation">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leMotherOccupationP">
+          <widget class="QLineEdit" name="leMotherOccupation">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
@@ -529,7 +530,7 @@
         </layout>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="lNameMotherP">
+        <widget class="QLabel" name="lNameMother">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -547,7 +548,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="lFatherOccupationP">
+        <widget class="QLabel" name="lFatherOccupation">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -565,7 +566,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="lMotherOccupationP">
+        <widget class="QLabel" name="lMotherOccupation">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -585,30 +586,30 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="contactDetailsP">
+    <widget class="QWidget" name="contactDetails">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
        <width>929</width>
-       <height>323</height>
+       <height>303</height>
       </rect>
      </property>
      <attribute name="label">
       <string>Contact Details</string>
      </attribute>
-     <widget class="QWidget" name="layoutWidget_9">
+     <widget class="QWidget" name="layoutWidget_4">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>0</y>
+        <x>120</x>
+        <y>10</y>
         <width>377</width>
-        <height>301</height>
+        <height>291</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_6">
+      <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
-        <widget class="QLabel" name="lBaseAddP">
+        <widget class="QLabel" name="lBaseAdd">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -626,7 +627,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QPlainTextEdit" name="teBaseAddP">
+        <widget class="QPlainTextEdit" name="teBaseAdd">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -641,13 +642,10 @@
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="lTownVillageP">
+        <widget class="QLabel" name="lTownVillage">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -665,17 +663,14 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="leTownP">
+        <widget class="QLineEdit" name="leTown">
          <property name="autoFillBackground">
-          <bool>true</bool>
-         </property>
-         <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="lStateP">
+        <widget class="QLabel" name="lState">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -693,17 +688,14 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="leStateP">
+        <widget class="QLineEdit" name="leState">
          <property name="autoFillBackground">
-          <bool>true</bool>
-         </property>
-         <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="lPincodeP">
+        <widget class="QLabel" name="lPincode">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -721,20 +713,17 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="lePincodeP">
+        <widget class="QLineEdit" name="lePincode">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="inputMethodHints">
           <set>Qt::ImhDigitsOnly</set>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="lPhoneP">
+        <widget class="QLabel" name="lPhone">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -752,20 +741,17 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="lePhoneP">
+        <widget class="QLineEdit" name="lePhone">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="inputMethodHints">
           <set>Qt::ImhDigitsOnly</set>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="lPhoneP_2">
+        <widget class="QLabel" name="lPhone_2">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -783,20 +769,17 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QLineEdit" name="lePhoneP_2">
+        <widget class="QLineEdit" name="lePhone_2">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="inputMethodHints">
           <set>Qt::ImhDigitsOnly</set>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="lEmailP">
+        <widget class="QLabel" name="lEmail">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -814,15 +797,12 @@
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QLineEdit" name="leEmailP">
+        <widget class="QLineEdit" name="leEmail">
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="inputMethodHints">
           <set>Qt::ImhEmailCharactersOnly</set>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -830,7 +810,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="layoutWidget_10">
+   <widget class="QWidget" name="layoutWidget_5">
     <property name="geometry">
      <rect>
       <x>21</x>
@@ -839,11 +819,11 @@
       <height>32</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="lRegNoP">
+        <widget class="QLabel" name="lRegNo">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -858,7 +838,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="leRegNoP">
+        <widget class="QLineEdit" name="leRegNo">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -875,7 +855,7 @@
       </layout>
      </item>
      <item>
-      <spacer name="horizontalSpacer_2">
+      <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -888,9 +868,9 @@
       </spacer>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLabel" name="lDateCurP">
+        <widget class="QLabel" name="lDateCur">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -905,7 +885,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QDateEdit" name="deRegDateP">
+        <widget class="QDateEdit" name="deRegDate">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -914,14 +894,11 @@
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
          <property name="displayFormat">
           <string>dd/MM/yyyy</string>
          </property>
          <property name="calendarPopup">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -929,7 +906,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pbUpdate">
+   <widget class="QPushButton" name="pbReset">
     <property name="geometry">
      <rect>
       <x>759</x>
@@ -947,10 +924,10 @@
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>Update</string>
+     <string>Reset</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pbClose">
+   <widget class="QPushButton" name="pbUpdate">
     <property name="geometry">
      <rect>
       <x>859</x>
@@ -968,7 +945,29 @@
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>Close</string>
+     <string>Update</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lMandatory">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>570</y>
+      <width>601</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>NOTE : (*) marked fields are mandatory fields. </string>
     </property>
    </widget>
   </widget>

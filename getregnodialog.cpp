@@ -1,6 +1,7 @@
 #include "getregnodialog.h"
 #include "ui_getregnodialog.h"
 #include "studentsprofile.h"
+#include "updatestudentprofile.h"
 
 GetRegNoDialog::GetRegNoDialog(QWidget *parent) :
     QDialog(parent),
@@ -16,9 +17,19 @@ GetRegNoDialog::~GetRegNoDialog()
 
 void GetRegNoDialog::on_buttonBox_accepted()
 {
-     StudentsProfile *profile = new StudentsProfile(this);
-     profile->showProfile(ui->leGetRegNo->text().toLong(0, 10), index,  adwn);
-     this->close();
+    if(taskId == 3)
+    {
+        StudentsProfile *profile = new StudentsProfile();
+        profile->showProfile(ui->leGetRegNo->text().toLong(), index,  adwn);
+        this->close();
+    }
+
+    else if(taskId == 4)
+    {
+        UpdateStudentProfile *profile = new UpdateStudentProfile();
+        profile->showProfile(ui->leGetRegNo->text().toLong(), index, adwn);
+        this->close();
+    }
 }
 
 void GetRegNoDialog::on_buttonBox_rejected()

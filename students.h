@@ -6,6 +6,7 @@
 #include "feeStructure.h"
 #include "admissionPage.h"
 #include "studentsprofile.h"
+#include "updatestudentprofile.h"
 
 #include <QString>
 #include <QDate>
@@ -45,6 +46,8 @@ public:
     friend class AdmissionPage;
 
     friend class StudentsProfile;
+
+    friend class UpdateStudentProfile;
 };
 
 #endif // STUDENTS_H

@@ -65,6 +65,14 @@ void AdminWindow::on_pbStudents_clicked()
                  grnd->adwn = ui;
                  tabIndex++;
                  grnd->index = tabIndex;
+                 grnd->taskId = 3;
+                 break;
+
+        case 4 : grnd->show();
+                 grnd->adwn = ui;
+                 tabIndex++;
+                 grnd->index = tabIndex;
+                 grnd->taskId = 4;
                  break;
     }
 }
@@ -72,5 +80,14 @@ void AdminWindow::on_pbStudents_clicked()
 void AdminWindow::on_tabWidget_tabCloseRequested(int index)
 {
     if(index!=0)
+    {
         ui->tabWidget->removeTab(index);
+        tabIndex--;
+    }
+}
+
+
+int AdminWindow::getTabIndex()
+{
+    return ++tabIndex;
 }

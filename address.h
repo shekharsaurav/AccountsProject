@@ -34,6 +34,8 @@ public :
     friend class AdmissionPage;
 
     friend class StudentsProfile;
+
+    friend class UpdateStudentProfile;
 };
 
 #endif // ADDRESS_H

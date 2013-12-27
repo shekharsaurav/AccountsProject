@@ -15,6 +15,7 @@ class AdminWindow : public QMainWindow
 public :
     explicit AdminWindow(QWidget *parent = 0);
     ~AdminWindow();
+    int getTabIndex();
 
 private slots:
 

@@ -15,9 +15,14 @@ class GetRegNoDialog : public QDialog
 
 public:
     explicit GetRegNoDialog(QWidget *parent = 0);
+
     ~GetRegNoDialog();
+
     Ui::adminWindow *adwn;
+
     int index;
+
+    int taskId;
 
 private slots:
     void on_buttonBox_accepted();

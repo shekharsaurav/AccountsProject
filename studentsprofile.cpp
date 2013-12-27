@@ -1,8 +1,15 @@
 #include <QSqlQuery>
+#include <QMessageBox>
+#include <QSqlError>
+#include <iostream>
 
 #include "studentsprofile.h"
 #include "ui_studentsprofile.h"
+#include "getregnodialog.h"
+#include "adminWindow.h"
+#include "updatestudentprofile.h"
 
+using namespace std;
 
 StudentsProfile::StudentsProfile(QWidget *parent) :
     QWidget(parent),
@@ -53,7 +60,7 @@ void StudentsProfile::showProfile(long reqStudent, int index, Ui::adminWindow *a
         ui->deRegDateP->setDate(studProf.regDate);
         ui->leNameStudentP->setText(studProf.name);
         ui->deDOBP->setDate(studProf.dob);
-        if(studProf.gender == 0)
+        if(studProf.gender == 1)
             ui->leGenderP->setText("Male");
         else
             ui->leGenderP->setText("Female");
@@ -82,4 +89,24 @@ void StudentsProfile::showProfile(long reqStudent, int index, Ui::adminWindow *a
         adUi->tabWidget->setCurrentIndex(index);
         adUi->statusBar->showMessage(" Student's profile displayed.", 5000);
     }
+    else
+    {
+        QMessageBox::critical(0, QObject::tr("Invalid Request"), query.lastError().text());
+        delete this;
+    }
+    tabId = index;
+    pUi = adUi;
+}
+
+void StudentsProfile::on_pbClose_clicked()
+{
+    pUi->tabWidget->removeTab(tabId);
+    this->close();
+}
+
+
+void StudentsProfile::on_pbUpdate_clicked()
+{
+    UpdateStudentProfile *profile = new UpdateStudentProfile();
+    profile->showProfile(ui->leRegNoP->text().toLong(), tabId+1 , pUi);
 }

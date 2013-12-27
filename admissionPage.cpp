@@ -89,8 +89,8 @@ void AdmissionPage::on_pbSubmit_clicked()
             studx.add.pin = ui->lePincode->text().toLong();
             studx.add.state = ui->leState->text();
             studx.email = ui->leEmail->text();
-            studx.contact1 = ui->lePhone->text().toLong();
-            studx.contact2 = ui->lePhone_2->text().toLong();
+            studx.contact1 = ui->lePhone->text().toLongLong();
+            studx.contact2 = ui->lePhone_2->text().toLongLong();
             studx.image = fileName;
             QString stmt;
 // = "INSERT INTO STUDENTS values (";
