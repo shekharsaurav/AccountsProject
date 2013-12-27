@@ -32,6 +32,8 @@ public :
     void setState(QString st);
 
     friend class AdmissionPage;
+
+    friend class StudentsProfile;
 };
 
 #endif // ADDRESS_H

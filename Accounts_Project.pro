@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     reciept.cpp \
     feeStructure.cpp \
     address.cpp \
-    studentsprofile.cpp
+    studentsprofile.cpp \
+    getregnodialog.cpp
 
 HEADERS  += homescreen.h \
     admin.h \
@@ -35,9 +36,11 @@ HEADERS  += homescreen.h \
     reciept.h \
     feeStructure.h \
     address.h \
-    studentsprofile.h
+    studentsprofile.h \
+    getregnodialog.h
 
 FORMS    += homescreen.ui \
     adminWindow.ui \
     admissionPage.ui \
-    studentsprofile.ui
+    studentsprofile.ui \
+    getregnodialog.ui

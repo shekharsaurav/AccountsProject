@@ -5,15 +5,17 @@
 #include <QSqlDatabase>
 #include "ui_admissionPage.h"
 #include "students.h"
+#include "ui_adminWindow.h"
+
 
 class AdmissionPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit  AdmissionPage(QWidget *parent = 0);
+    explicit AdmissionPage(Ui::adminWindow *parentUi, QWidget *parent = 0);
     ~AdmissionPage();
-    friend class Students;
+   // friend class Students;
 
 private slots:
 
@@ -32,6 +34,7 @@ private:
 
     QString copyImage(QString);
 
-};
+    Ui::adminWindow *pUi;
+ };
 
 #endif // ADMISSIONPAGE_H

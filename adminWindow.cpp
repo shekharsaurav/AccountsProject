@@ -2,8 +2,6 @@
 
 #include "adminWindow.h"
 #include "ui_adminWindow.h"
-#include "admissionPage.h"
-#include "studentsprofile.h"
 
 #include <iostream>
 
@@ -53,17 +51,20 @@ void AdminWindow::on_pbStudents_clicked()
     cout<<"index selected : "<< i;
     switch(i)
     {
-        case 0 : AdmissionPage *page = new AdmissionPage();
-                 tabIndex++;
+        case 0 : tabIndex++;
                  ui->tabWidget->insertTab(tabIndex ,page, word);
-                 ui->tabWidget->;
+                 ui->tabWidget->setCurrentIndex(tabIndex);
                  ui->statusBar->showMessage(" New Admission Form" , 5000);
                  break;
 
-        case 3 : StudentsProfile *profile = new StudentsProfile();
+//        case 1 : break;
+
+//        case 2 : break;
+
+        case 3 : grnd->show();
+                 grnd->adwn = ui;
                  tabIndex++;
-                 ui->tabWidget->insertTab(tabIndex, profile, word);
-                 ui->statusBar->showMessage(" Student's profile displayed.");
+                 grnd->index = tabIndex;
                  break;
     }
 }

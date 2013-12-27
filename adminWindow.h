@@ -5,6 +5,8 @@
 #include <QScrollArea>
 
 #include "ui_adminWindow.h"
+#include "admissionPage.h"
+#include "getregnodialog.h"
 
 class AdminWindow : public QMainWindow
 {
@@ -28,7 +30,13 @@ private slots:
 
 private:
     Ui::adminWindow *ui;
+
+    AdmissionPage *page = new AdmissionPage(this->ui);
+
+    GetRegNoDialog *grnd = new GetRegNoDialog();
+
     int tabIndex;
+
     QScrollArea scrollArea;
 
 };

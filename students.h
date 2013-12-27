@@ -5,6 +5,7 @@
 #include "address.h"
 #include "feeStructure.h"
 #include "admissionPage.h"
+#include "studentsprofile.h"
 
 #include <QString>
 #include <QDate>
@@ -42,6 +43,8 @@ public:
                     QString mother, QString ocMot, QString father, QString ocFat, Address add, QString email, long contact1, long contact2, int roll, QString image);
 
     friend class AdmissionPage;
+
+    friend class StudentsProfile;
 };
 
 #endif // STUDENTS_H

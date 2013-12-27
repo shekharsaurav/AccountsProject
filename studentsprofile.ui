@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1350</width>
-    <height>651</height>
+    <height>631</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -97,7 +97,7 @@
       <x>10</x>
       <y>140</y>
       <width>931</width>
-      <height>401</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="font">
@@ -118,7 +118,7 @@
      <enum>QFrame::Raised</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="tabSpacing">
      <number>3</number>
@@ -129,7 +129,7 @@
        <x>0</x>
        <y>0</y>
        <width>929</width>
-       <height>303</height>
+       <height>333</height>
       </rect>
      </property>
      <attribute name="label">
@@ -430,7 +430,7 @@
        <x>0</x>
        <y>0</y>
        <width>929</width>
-       <height>303</height>
+       <height>333</height>
       </rect>
      </property>
      <attribute name="label">
@@ -591,7 +591,7 @@
        <x>0</x>
        <y>0</y>
        <width>929</width>
-       <height>303</height>
+       <height>333</height>
       </rect>
      </property>
      <attribute name="label">
@@ -603,7 +603,7 @@
         <x>120</x>
         <y>10</y>
         <width>377</width>
-        <height>291</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_6">
