@@ -107,6 +107,8 @@ void StudentsProfile::on_pbClose_clicked()
 
 void StudentsProfile::on_pbUpdate_clicked()
 {
+    pUi->tabWidget->removeTab(tabId);
+    this->close();
     UpdateStudentProfile *profile = new UpdateStudentProfile();
     profile->showProfile(ui->leRegNoP->text().toLong(), tabId+1 , pUi);
 }

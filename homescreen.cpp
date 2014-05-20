@@ -4,7 +4,7 @@
 #include "dbConnection.h"
 
 #include <QMessageBox>
-//#include <QDebug>
+#include <QDebug>
 #include <iostream>
 #include <QSqlQuery>
 #include <QScrollArea>

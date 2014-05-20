@@ -60,12 +60,12 @@ void AdmissionPage::on_pbSubmit_clicked()
             ui->leState->text().isEmpty() || ui->lePincode->text().isEmpty() ||
             ui->lePhone->text().isEmpty())
     {
-         QMessageBox::critical(0, tr("Submit Faiure"),tr("Some mandatory fields are empty!!"));
+         QMessageBox::critical(0, tr("Submission Failure"),tr("Some mandatory fields are empty!!"));
          pUi->statusBar->showMessage(tr(" Some mandatory fields are empty!"), 5000 );
     }
     else
     {
-        if((QMessageBox::warning(this, tr("Confirm Submission"), tr("Confirm admission?\n Note: Database will updated."),QMessageBox::Yes, QMessageBox::Cancel)) == QMessageBox::Yes)
+        if((QMessageBox::warning(this, tr("Confirm Submission"), tr("Confirm admission?\n Note: Database will be updated."),QMessageBox::Yes, QMessageBox::Cancel)) == QMessageBox::Yes)
         {
             Students studx;
             studx.regNo = ui->leRegNo->text().toLong();
@@ -107,7 +107,7 @@ void AdmissionPage::on_pbSubmit_clicked()
                                         studx.occpFather.toStdString().c_str(), studx.add.baseAdd.toStdString().c_str(), studx.add.town.toStdString().c_str(),
                                         studx.add.pin, studx.add.state.toStdString().c_str(), studx.email.toStdString().c_str(), studx.contact1,
                                         studx.contact2, 0, studx.image.toStdString().c_str());
-            cout<<"\n\n"<<stmt.toStdString()<<"\n\n";
+//            cout<<"\n\n"<<stmt.toStdString()<<"\n\n";
             QSqlDatabase::database().transaction();
             QSqlQuery query;
             query.exec(stmt);
@@ -115,12 +115,12 @@ void AdmissionPage::on_pbSubmit_clicked()
             int result = query.numRowsAffected();
             if(result != -1)
             {
-                QMessageBox::about(0, tr("Submit Successful"),tr("Student's Details generated in database successfully.."));
+                QMessageBox::about(0, tr("Submission Successful"),tr("Student's Details generated in database successfully.."));
                 pUi->statusBar->showMessage(tr(" Database updated successfully!"), 5000 );
             }
             else
             {
-                 QMessageBox::critical(0, tr("Submit failed"), query.lastError().text());
+                 QMessageBox::critical(0, tr("Submission failed"), query.lastError().text());
                  pUi->statusBar->showMessage(tr(" Submission failed!"), 5000 );
             }
         }

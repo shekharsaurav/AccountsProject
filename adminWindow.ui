@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1354</width>
-    <height>724</height>
+    <height>714</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -41,7 +41,7 @@
       <x>10</x>
       <y>10</y>
       <width>1341</width>
-      <height>671</height>
+      <height>661</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -509,6 +509,11 @@
                   <string>Yearly View</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>Fee Structure</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item alignment="Qt::AlignBottom">
@@ -542,7 +547,7 @@
      <x>0</x>
      <y>0</y>
      <width>1354</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="autoFillBackground">

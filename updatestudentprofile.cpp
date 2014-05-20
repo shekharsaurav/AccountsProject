@@ -212,7 +212,7 @@ void UpdateStudentProfile::on_pbUpdate_clicked()
 //                studx.occpMother.data(), studx.father.data(), studx.occpFather.data(), studx.add.baseAdd.data(),
 //                studx.add.town.data(), studx.add.pin, studx.add.state.data(), studx.email.data(), studx.contact1,
 //                studx.contact2, 0, studx.image.data());
-            stmt.sprintf("Update STUDENTS set regDate=\"%s\", name=\"%s\", dob=\"%s\", gender=%d, bloodGrp=\"%s\", nation=\"%s\", religion=\"%s\", mother=\"%s\", occpMother=\"%s\", father=\"%s\", occpFather=\"%s\", baseAdd=\"%s\", town=\"%s\", pin=%ld, state=\"%s\", email=\"%s\", contact1=%lld, contact2=%lld, roll=%d, image=\"%s\" where regNo=%ld;",
+            stmt.sprintf("Update STUDENTS set regDate=\"%s\", name=\"%s\", dob=\"%s\", gender=%d, bloodGrp=\"%s\", nationality=\"%s\", religion=\"%s\", mother=\"%s\", occpMother=\"%s\", father=\"%s\", occpFather=\"%s\", baseAdd=\"%s\", town=\"%s\", pin=%ld, state=\"%s\", email=\"%s\", contact1=%lld, contact2=%lld, roll=%d, image=\"%s\" where regNo=%ld;",
                                         studx.regDate.toString("yyyy-MM-dd").toStdString().c_str(), studx.name.toStdString().c_str(), studx.dob.toString("yyyy-MM-dd").toStdString().c_str(), studx.gender,
                                         studx.bloodGrp.toStdString().c_str(), studx.nationality.toStdString().c_str(), studx.religion.toStdString().c_str(),
                                         studx.mother.toStdString().c_str(), studx.occpMother.toStdString().c_str(), studx.father.toStdString().c_str(),

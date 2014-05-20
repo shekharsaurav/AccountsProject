@@ -2,6 +2,7 @@
 
 FeeStructure::FeeStructure()
 {
+    std = "";
     regFee = 0.0;
     tutFee = 0.0;
     genrFee = 0.0;

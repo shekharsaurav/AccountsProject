@@ -7,11 +7,11 @@
 bool DbConnection :: createConnection()
 {
       db = QSqlDatabase::addDatabase("QMYSQL");
-      db.setHostName("localhost");
+      db.setHostName("127.0.0.1");
       db.setPort(3306);
       db.setDatabaseName("account");
-      db.setUserName("root");
-      db.setPassword("root");
+      db.setUserName("shekhar");
+      db.setPassword("doitnow");
       if(!db.open())
       {
           QMessageBox::critical(0, QObject::tr("Database Error"), db.lastError().text());

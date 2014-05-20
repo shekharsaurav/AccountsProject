@@ -7,6 +7,7 @@
 QT       += core gui
 
 QT += sql
+QTPLUGIN += qsqlmysql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Accounts_Project
@@ -25,7 +26,9 @@ SOURCES += main.cpp \
     address.cpp \
     studentsprofile.cpp \
     getregnodialog.cpp \
-    updatestudentprofile.cpp
+    updatestudentprofile.cpp \
+    feeStructurePage.cpp \
+    getFeeStructureDialog.cpp
 
 HEADERS  += homescreen.h \
     admin.h \
@@ -39,11 +42,15 @@ HEADERS  += homescreen.h \
     address.h \
     studentsprofile.h \
     getregnodialog.h \
-    updatestudentprofile.h
+    updatestudentprofile.h \
+    feeStructurePage.h \
+    getFeeStructureDialog.h
 
 FORMS    += homescreen.ui \
     adminWindow.ui \
     admissionPage.ui \
     studentsprofile.ui \
     getregnodialog.ui \
-    updatestudentprofile.ui
+    updatestudentprofile.ui \
+    feeStructurePage.ui \
+    getFeeStructureDialog.ui

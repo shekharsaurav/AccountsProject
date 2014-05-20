@@ -77,6 +77,22 @@ void AdminWindow::on_pbStudents_clicked()
     }
 }
 
+void AdminWindow::on_pbAccounts_clicked()
+{
+    QModelIndex index = ui->twAccounts->currentIndex();
+    int i = index.row();
+    QTreeWidgetItem *item = ui->twAccounts->currentItem();
+    QString word = item->text(0);
+    switch(i)
+    {
+        case 2 : tabIndex++;
+                 ui->tabWidget->insertTab(tabIndex, strucPage, word);
+                 ui->tabWidget->setCurrentIndex(tabIndex);
+                 ui->statusBar->showMessage(" Fee Structure", 5000);
+        break;
+    }
+}
+
 void AdminWindow::on_tabWidget_tabCloseRequested(int index)
 {
     if(index!=0)

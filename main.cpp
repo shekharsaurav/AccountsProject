@@ -3,7 +3,9 @@
 
 #include <QApplication>
 #include <iostream>
+#include <QtPlugin>
 
+//Q_IMPORT_PLUGIN(qsqlmysql)
 
 int main(int argc, char *argv[])
 {

@@ -6,6 +6,7 @@
 
 #include "ui_adminWindow.h"
 #include "admissionPage.h"
+#include "feeStructurePage.h"
 #include "getregnodialog.h"
 
 class AdminWindow : public QMainWindow
@@ -27,12 +28,16 @@ private slots:
 
     void on_pbStudents_clicked();
 
+    void on_pbAccounts_clicked();
+
     void on_tabWidget_tabCloseRequested(int index);
 
 private:
     Ui::adminWindow *ui;
 
     AdmissionPage *page = new AdmissionPage(this->ui);
+
+    FeeStructurePage *strucPage = new FeeStructurePage(this->ui);
 
     GetRegNoDialog *grnd = new GetRegNoDialog();
 
