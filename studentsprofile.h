@@ -15,11 +15,11 @@ class StudentsProfile : public QWidget
     Q_OBJECT
 
 public:
-    explicit StudentsProfile(QWidget *parent = 0);
+    explicit StudentsProfile(Ui::adminWindow *parentUi, QWidget *parent =0);
 
     ~StudentsProfile();
 
-    void showProfile(long reqStudent, int index, Ui::adminWindow *adUi);
+    void showProfile(long reqStudent, int index);
 
 private slots:
     void on_pbClose_clicked();

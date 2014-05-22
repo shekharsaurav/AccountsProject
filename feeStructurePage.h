@@ -18,7 +18,7 @@ public:
 
     ~FeeStructurePage();
 
-    void showFeeStructure(QString std, int index, Ui::adminWindow *adUi);
+    void showFeeStructure(QString std, int index);
 
 private slots:
 

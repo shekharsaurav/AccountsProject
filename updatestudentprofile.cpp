@@ -13,11 +13,12 @@
 
 using namespace std;
 
-UpdateStudentProfile::UpdateStudentProfile(QWidget *parent) :
+UpdateStudentProfile::UpdateStudentProfile(Ui::adminWindow *parentUi, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UpdateStudentProfile)
 {
     ui->setupUi(this);
+    pUi = parentUi;
 }
 
 UpdateStudentProfile::~UpdateStudentProfile()
@@ -25,7 +26,7 @@ UpdateStudentProfile::~UpdateStudentProfile()
     delete ui;
 }
 
-void UpdateStudentProfile::showProfile(long reqStudent, int index, Ui::adminWindow *adUi)
+void UpdateStudentProfile::showProfile(long reqStudent, int index)
 {
     Students studProf;
     QSqlQuery query;
@@ -87,16 +88,15 @@ void UpdateStudentProfile::showProfile(long reqStudent, int index, Ui::adminWind
         pm.load(studProf.image, 0, Qt::AutoColor);
         pm.scaled(121, 141);
         ui->lPhoto->setPixmap(pm);
-        adUi->tabWidget->insertTab(index, this, "Student Profile");
-        adUi->tabWidget->setCurrentIndex(index);
-        adUi->statusBar->showMessage(" Student's profile displayed.", 5000);
+        pUi->tabWidget->insertTab(index, this, "Student Profile");
+        pUi->tabWidget->setCurrentIndex(index);
+        pUi->statusBar->showMessage(" Student's profile displayed.", 5000);
     }
     else
     {
         QMessageBox::critical(0, QObject::tr("Invalid Request"), query.lastError().text());
         delete this;
     }
-    pUi = adUi;
 }
 
 void UpdateStudentProfile::on_cbUpload_clicked()

@@ -19,15 +19,15 @@ void GetRegNoDialog::on_buttonBox_accepted()
 {
     if(taskId == 3)
     {
-        StudentsProfile *profile = new StudentsProfile();
-        profile->showProfile(ui->leGetRegNo->text().toLong(), index,  adwn);
+        StudentsProfile *profile = new StudentsProfile(adwn);
+        profile->showProfile(ui->leGetRegNo->text().toLong(), index);
         this->close();
     }
 
     else if(taskId == 4)
     {
-        UpdateStudentProfile *profile = new UpdateStudentProfile();
-        profile->showProfile(ui->leGetRegNo->text().toLong(), index, adwn);
+        UpdateStudentProfile *profile = new UpdateStudentProfile(adwn);
+        profile->showProfile(ui->leGetRegNo->text().toLong(), index);
         this->close();
     }
 }

@@ -14,9 +14,9 @@ class UpdateStudentProfile : public QWidget
     Q_OBJECT
 
 public:
-    explicit UpdateStudentProfile(QWidget *parent = 0);
+    explicit UpdateStudentProfile(Ui::adminWindow *parentUi, QWidget *parent =0);
     ~UpdateStudentProfile();
-    void showProfile(long reqStudent, int index, Ui::adminWindow *adUi);
+    void showProfile(long reqStudent, int index);
 
 private slots:
     void on_cbUpload_clicked();

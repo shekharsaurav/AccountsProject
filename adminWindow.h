@@ -8,6 +8,7 @@
 #include "admissionPage.h"
 #include "feeStructurePage.h"
 #include "getregnodialog.h"
+#include "getFeeStructureDialog.h"
 
 class AdminWindow : public QMainWindow
 {
@@ -40,6 +41,8 @@ private:
     FeeStructurePage *strucPage = new FeeStructurePage(this->ui);
 
     GetRegNoDialog *grnd = new GetRegNoDialog();
+
+    GetFeeStructureDialog *gfsd = new GetFeeStructureDialog();
 
     int tabIndex;
 

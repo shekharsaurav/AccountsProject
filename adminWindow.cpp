@@ -48,7 +48,7 @@ void AdminWindow::on_pbStudents_clicked()
     QTreeWidgetItem *item = ui->twStudents->currentItem();
     QString word = item->text(0);
 
-    cout<<"index selected : "<< i;
+//    cout<<"index selected : "<< i;
     switch(i)
     {
         case 0 : tabIndex++;
@@ -85,10 +85,14 @@ void AdminWindow::on_pbAccounts_clicked()
     QString word = item->text(0);
     switch(i)
     {
-        case 2 : tabIndex++;
+        case 2 : gfsd->show();
+                 gfsd->adwn = ui;
+                 tabIndex++;
+                 gfsd->index = tabIndex;
+        /*tabIndex++;
                  ui->tabWidget->insertTab(tabIndex, strucPage, word);
                  ui->tabWidget->setCurrentIndex(tabIndex);
-                 ui->statusBar->showMessage(" Fee Structure", 5000);
+                 ui->statusBar->showMessage(" Fee Structure", 5000);*/
         break;
     }
 }

@@ -11,11 +11,12 @@
 
 using namespace std;
 
-StudentsProfile::StudentsProfile(QWidget *parent) :
+StudentsProfile::StudentsProfile(Ui::adminWindow *parentUi, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StudentsProfile)
 {
     ui->setupUi(this);
+    pUi = parentUi;
 }
 
 StudentsProfile::~StudentsProfile()
@@ -23,7 +24,7 @@ StudentsProfile::~StudentsProfile()
     delete ui;
 }
 
-void StudentsProfile::showProfile(long reqStudent, int index, Ui::adminWindow *adUi)
+void StudentsProfile::showProfile(long reqStudent, int index)
 {
     Students studProf;
     QSqlQuery query;
@@ -85,9 +86,9 @@ void StudentsProfile::showProfile(long reqStudent, int index, Ui::adminWindow *a
         pm.load(studProf.image, 0, Qt::AutoColor);
         pm.scaled(121, 141);
         ui->lPhotoP->setPixmap(pm);
-        adUi->tabWidget->insertTab(index, this, "Student Profile");
-        adUi->tabWidget->setCurrentIndex(index);
-        adUi->statusBar->showMessage(" Student's profile displayed.", 5000);
+        pUi->tabWidget->insertTab(index, this, "Student Profile");
+        pUi->tabWidget->setCurrentIndex(index);
+        pUi->statusBar->showMessage(" Student's profile displayed.", 5000);
     }
     else
     {
@@ -95,7 +96,6 @@ void StudentsProfile::showProfile(long reqStudent, int index, Ui::adminWindow *a
         delete this;
     }
     tabId = index;
-    pUi = adUi;
 }
 
 void StudentsProfile::on_pbClose_clicked()
@@ -109,6 +109,6 @@ void StudentsProfile::on_pbUpdate_clicked()
 {
     pUi->tabWidget->removeTab(tabId);
     this->close();
-    UpdateStudentProfile *profile = new UpdateStudentProfile();
-    profile->showProfile(ui->leRegNoP->text().toLong(), tabId+1 , pUi);
+    UpdateStudentProfile *profile = new UpdateStudentProfile(pUi);
+    profile->showProfile(ui->leRegNoP->text().toLong(), tabId+1);
 }

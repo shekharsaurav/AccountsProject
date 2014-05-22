@@ -60,12 +60,12 @@ void FeeStructurePage::on_pbReset_clicked()
     }
 }
 
-void FeeStructurePage::showFeeStructure(QString std, int index, Ui::adminWindow *adUi)
+void FeeStructurePage::showFeeStructure(QString std, int index)
 {
     FeeStructure feeStruc;
     QSqlQuery query;
     QString stmt;
-    stmt.sprintf("SELECT * FROM feestructure WHERE class = \"%s\";", std);
+    stmt.sprintf("SELECT * FROM feestructure WHERE class = \"%s\";", std.toStdString().c_str());
     query.exec(stmt);
     if(query.next())
     {
@@ -79,7 +79,31 @@ void FeeStructurePage::showFeeStructure(QString std, int index, Ui::adminWindow 
         feeStruc.devlpFee = query.value(7).toDouble();
         feeStruc.compFee = query.value(8).toDouble();
         ui->leClass->setText(feeStruc.std);
-        item[0]->setText(feeStruc.regFee.toString());
+        QString str;
+        str = QString::number(feeStruc.regFee);
+        item[0]->setText(str);
+        str = QString::number(feeStruc.tutFee);
+        item[1]->setText(str);
+        str = QString::number(feeStruc.genrFee);
+        item[2]->setText(str);
+        str = QString::number(feeStruc.examFee);
+        item[3]->setText(str);
+        str = QString::number(feeStruc.reAddmFee);
+        item[4]->setText(str);
+        str = QString::number(feeStruc.lateFee);
+        item[5]->setText(str);
+        str = QString::number(feeStruc.devlpFee);
+        item[6]->setText(str);
+        str = QString::number(feeStruc.compFee);
+        item[7]->setText(str);
+        pUi->tabWidget->insertTab(index, this, "Fee Structure");
+        pUi->tabWidget->setCurrentIndex(index);
+        pUi->statusBar->showMessage(" Fee Structure Displayed.", 5000);
+    }
+    else
+    {
+        QMessageBox::critical(0, QObject::tr("Invalid Request!!"), query.lastError().text());
+        delete this;
     }
 }
 

@@ -17,6 +17,12 @@ GetFeeStructureDialog::~GetFeeStructureDialog()
 
 void GetFeeStructureDialog::on_buttonBox_accepted()
 {
-    FeeStructurePage *feeStruc = new FeeStructurePage();
-    feeStruc->
+    FeeStructurePage *feeStruc = new FeeStructurePage(adwn);
+    feeStruc->showFeeStructure(ui->leClass->text(), index);
+    this->close();
+}
+
+void GetFeeStructureDialog::on_buttonBox_rejected()
+{
+    this->close();
 }

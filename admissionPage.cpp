@@ -123,6 +123,18 @@ void AdmissionPage::on_pbSubmit_clicked()
                  QMessageBox::critical(0, tr("Submission failed"), query.lastError().text());
                  pUi->statusBar->showMessage(tr(" Submission failed!"), 5000 );
             }
+            stmt.sprintf("CREATE TABLE reg%ld (month VARCHAR(15) PRIMARY KEY, receiptNo BIGINT, regFeeDues DOUBLE, regFeeDep DOUBLE, tutFeeDues DOUBLE, tutFeeDep DOUBLE, genFeeDues DOUBLE, genFeeDep DOUBLE, examFeeDues DOUBLE, examFeeDep DOUBLE, reAddFeeDues DOUBLE, reAddFeeDep DOUBLE, lateFeeDues DOUBLE, lateFeeDep DOUBLE, devlpFeeDues DOUBLE, devlpFeeDep DOUBLE, compFeeDues DOUBLE, compFeeDep DOUBLE, TotDues DOUBLE);", studx.regNo);
+            query.exec(stmt);
+            QSqlDatabase::database().commit();
+            result = query.numRowsAffected();
+            if(result != -1)
+            {
+                pUi->statusBar->showMessage(tr(" Financial account created for the student."), 8000);
+            }
+            else
+            {
+                pUi->statusBar->showMessage(tr(" Financial transaction failed!"));
+            }
         }
     }
 }
