@@ -54,6 +54,7 @@ void StudentsProfile::showProfile(long reqStudent, int index)
         studProf.contact2 = query.value(18).toLongLong();
         studProf.roll = query.value(19).toInt();
         studProf.image = query.value(20).toString();
+        studProf.std = query.value(21).toString();
 
         QString str;
         str = QString::number(studProf.regNo);
@@ -65,6 +66,7 @@ void StudentsProfile::showProfile(long reqStudent, int index)
             ui->leGenderP->setText("Male");
         else
             ui->leGenderP->setText("Female");
+        ui->leStdP->setText(studProf.std);
         ui->leBloodGrpP->setText(studProf.bloodGrp);
         ui->leNationalityP->setText(studProf.nationality);
         ui->leReligionP->setText(studProf.religion);

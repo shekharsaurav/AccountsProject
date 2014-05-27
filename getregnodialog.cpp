@@ -2,6 +2,7 @@
 #include "ui_getregnodialog.h"
 #include "studentsprofile.h"
 #include "updatestudentprofile.h"
+#include "feeReceipt.h"
 
 GetRegNoDialog::GetRegNoDialog(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +18,13 @@ GetRegNoDialog::~GetRegNoDialog()
 
 void GetRegNoDialog::on_buttonBox_accepted()
 {
+    if(taskId == 1)
+    {
+        FeeReceipt *receipt = new FeeReceipt(adwn);
+        receipt->generateReceipt(ui->leGetRegNo->text().toLong(), index);
+        this->close();
+    }
+
     if(taskId == 3)
     {
         StudentsProfile *profile = new StudentsProfile(adwn);

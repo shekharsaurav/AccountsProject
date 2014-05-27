@@ -57,7 +57,12 @@ void AdminWindow::on_pbStudents_clicked()
                  ui->statusBar->showMessage(" New Admission Form" , 5000);
                  break;
 
-//        case 1 : break;
+        case 1 : grnd->show();
+                 grnd->adwn = ui;
+                 tabIndex++;
+                 grnd->index = tabIndex;
+                 grnd->taskId = 1;
+                 break;
 
 //        case 2 : break;
 

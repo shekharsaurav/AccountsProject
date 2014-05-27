@@ -28,7 +28,8 @@ SOURCES += main.cpp \
     getregnodialog.cpp \
     updatestudentprofile.cpp \
     feeStructurePage.cpp \
-    getFeeStructureDialog.cpp
+    getFeeStructureDialog.cpp \
+    feeReceipt.cpp
 
 HEADERS  += homescreen.h \
     admin.h \
@@ -44,7 +45,8 @@ HEADERS  += homescreen.h \
     getregnodialog.h \
     updatestudentprofile.h \
     feeStructurePage.h \
-    getFeeStructureDialog.h
+    getFeeStructureDialog.h \
+    feeReceipt.h
 
 FORMS    += homescreen.ui \
     adminWindow.ui \
@@ -53,4 +55,5 @@ FORMS    += homescreen.ui \
     getregnodialog.ui \
     updatestudentprofile.ui \
     feeStructurePage.ui \
-    getFeeStructureDialog.ui
+    getFeeStructureDialog.ui \
+    feeReceipt.ui

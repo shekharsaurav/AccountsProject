@@ -7,6 +7,7 @@
 #include "admissionPage.h"
 #include "studentsprofile.h"
 #include "updatestudentprofile.h"
+#include "feeReceipt.h"
 
 #include <QString>
 #include <QDate>
@@ -31,6 +32,7 @@ class Students : public Standard
     qlonglong contact2;
     int roll;
     QString image;
+    QString std;
 
 public:
 //    Students(long rno, QDate rdate, QString nam, QDate dob, bool gen, QString nat, QString rel, QString blood,
@@ -48,6 +50,8 @@ public:
     friend class StudentsProfile;
 
     friend class UpdateStudentProfile;
+
+    friend class FeeReceipt;
 };
 
 #endif // STUDENTS_H

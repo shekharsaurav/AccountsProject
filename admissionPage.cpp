@@ -77,6 +77,7 @@ void AdmissionPage::on_pbSubmit_clicked()
                 studx.gender = true;
             else if(index == 2)
                 studx.gender = false;
+            studx.std = ui->leStd->text();
             studx.nationality = ui->leNationality->text();
             studx.religion = ui->leReligion->text();
             studx.bloodGrp = ui->leBloodGrp->text();
@@ -100,13 +101,13 @@ void AdmissionPage::on_pbSubmit_clicked()
 //                studx.occpMother.data(), studx.father.data(), studx.occpFather.data(), studx.add.baseAdd.data(),
 //                studx.add.town.data(), studx.add.pin, studx.add.state.data(), studx.email.data(), studx.contact1,
 //                studx.contact2, 0, studx.image.data());
-            stmt.sprintf("INSERT INTO STUDENTS values (%ld, \"%s\", \"%s\", \"%s\", %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", %ld, \"%s\", \"%s\", %lld, %lld, %d, \"%s\");",
+            stmt.sprintf("INSERT INTO STUDENTS values (%ld, \"%s\", \"%s\", \"%s\", %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", %ld, \"%s\", \"%s\", %lld, %lld, %d, \"%s\", \"%s\");",
                                          studx.regNo, studx.regDate.toString("yyyy-MM-dd").toStdString().c_str(), studx.name.toStdString().c_str(), studx.dob.toString("yyyy-MM-dd").toStdString().c_str(), studx.gender,
                                         studx.bloodGrp.toStdString().c_str(), studx.nationality.toStdString().c_str(), studx.religion.toStdString().c_str(),
                                         studx.mother.toStdString().c_str(), studx.occpMother.toStdString().c_str(), studx.father.toStdString().c_str(),
                                         studx.occpFather.toStdString().c_str(), studx.add.baseAdd.toStdString().c_str(), studx.add.town.toStdString().c_str(),
                                         studx.add.pin, studx.add.state.toStdString().c_str(), studx.email.toStdString().c_str(), studx.contact1,
-                                        studx.contact2, 0, studx.image.toStdString().c_str());
+                                        studx.contact2, 0, studx.image.toStdString().c_str(), studx.std.toStdString().c_str());
 //            cout<<"\n\n"<<stmt.toStdString()<<"\n\n";
             QSqlDatabase::database().transaction();
             QSqlQuery query;
@@ -123,7 +124,7 @@ void AdmissionPage::on_pbSubmit_clicked()
                  QMessageBox::critical(0, tr("Submission failed"), query.lastError().text());
                  pUi->statusBar->showMessage(tr(" Submission failed!"), 5000 );
             }
-            stmt.sprintf("CREATE TABLE reg%ld (month VARCHAR(15) PRIMARY KEY, receiptNo BIGINT, regFeeDues DOUBLE, regFeeDep DOUBLE, tutFeeDues DOUBLE, tutFeeDep DOUBLE, genFeeDues DOUBLE, genFeeDep DOUBLE, examFeeDues DOUBLE, examFeeDep DOUBLE, reAddFeeDues DOUBLE, reAddFeeDep DOUBLE, lateFeeDues DOUBLE, lateFeeDep DOUBLE, devlpFeeDues DOUBLE, devlpFeeDep DOUBLE, compFeeDues DOUBLE, compFeeDep DOUBLE, TotDues DOUBLE);", studx.regNo);
+            stmt.sprintf("CREATE TABLE reg%ld (month VARCHAR(15) PRIMARY KEY, receiptNo BIGINT, regFeeDues DOUBLE, regFeeDep DOUBLE, tutFeeDues DOUBLE, tutFeeDep DOUBLE, genFeeDues DOUBLE, genFeeDep DOUBLE, examFeeDues DOUBLE, examFeeDep DOUBLE, reAddFeeDues DOUBLE, reAddFeeDep DOUBLE, lateFeeDues DOUBLE, lateFeeDep DOUBLE, devlpFeeDues DOUBLE, devlpFeeDep DOUBLE, compFeeDues DOUBLE, compFeeDep DOUBLE, miscDues DOUBLE, miscDep DOUBLE, TotDues DOUBLE);", studx.regNo);
             query.exec(stmt);
             QSqlDatabase::database().commit();
             result = query.numRowsAffected();
@@ -175,7 +176,7 @@ QString AdmissionPage::copyImage(QString file)
     {
         QString curDir;
         curDir = QDir::currentPath();
-        imageFile.sprintf("%s/Images/I%s.jpg", curDir.toStdString().c_str(), ui->leRegNo->text().toStdString().c_str());
+        imageFile.sprintf("%s\\Images\\I%s.jpg", curDir.toStdString().c_str(), ui->leRegNo->text().toStdString().c_str());
         cout<<"\n\n"<<imageFile.toStdString()<<"\n";
         ofstream outstream(imageFile.toStdString().c_str());
         if(!outstream)
@@ -187,6 +188,7 @@ QString AdmissionPage::copyImage(QString file)
             while((instream.read((char*) &buf, sizeof buf)))
                 outstream.write((char*) &buf, sizeof buf);
         }
+        outstream.flush();
         outstream.close();
     }
     instream.close();

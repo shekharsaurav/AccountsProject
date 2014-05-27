@@ -36,6 +36,8 @@ public :
     friend class StudentsProfile;
 
     friend class UpdateStudentProfile;
+
+    friend class FeeReceipt;
 };
 
 #endif // ADDRESS_H
