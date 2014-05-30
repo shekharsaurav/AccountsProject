@@ -458,41 +458,6 @@
      <string>Print</string>
     </property>
    </widget>
-   <widget class="QSplitter" name="splitter_2">
-    <property name="geometry">
-     <rect>
-      <x>687</x>
-      <y>80</y>
-      <width>214</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <widget class="QLabel" name="lDate">
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Date :</string>
-     </property>
-    </widget>
-    <widget class="QDateEdit" name="deReceiptDate">
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="calendarPopup">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
@@ -598,7 +563,7 @@
      <number>35</number>
     </attribute>
     <attribute name="verticalHeaderStretchLastSection">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <row>
      <property name="text">
@@ -1378,6 +1343,180 @@
       <set>AlignRight|AlignVCenter</set>
      </property>
     </item>
+   </widget>
+   <widget class="QCheckBox" name="cbExamFee">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>520</y>
+      <width>201</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Include Examination Fee</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cbReAddmFee">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>540</y>
+      <width>201</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Include Readmission Fee</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbMonth">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>80</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>April</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>May</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>June</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>July</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>August</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>September</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>October</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>November</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>December</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>January</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>February</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>March</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>80</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Month :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lDate">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>80</y>
+      <width>50</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Date :</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="deReceiptDate">
+    <property name="geometry">
+     <rect>
+      <x>765</x>
+      <y>80</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
  </widget>

@@ -29,16 +29,32 @@ private slots:
 
     void on_pbReset_clicked();
 
+    void on_pbDeposite_clicked();
+
+    void on_cbExamFee_stateChanged(int arg1);
+
+    void on_cbReAddmFee_stateChanged(int arg1);
+
+    void on_cbMonth_currentIndexChanged(int index);
+
+    void updateFeeDues(int curMonth);
+
+    void on_twFeeReceipt_itemEntered(QTableWidgetItem *item);
+
+//    void on_twFeeReceipt_itemChanged(QTableWidgetItem *item);
+
 private:
     Ui::FeeReceipt *ui;
 
     Ui::adminWindow *pUi;
 
-//    Students stud;
-
     QSqlQuery query;
 
     QString stmt;
+
+    QString str;
+
+    FeeStructure feeStruc;
 
     QTableWidgetItem *duesItem[11];
 
@@ -47,6 +63,21 @@ private:
     QTableWidgetItem *depositeItem[11];
 
     QTableWidgetItem *clearedItem[11];
+
+    double totalDues = 0;
+
+    double totalCurrent = 0;
+
+    double totalDeposite = 0;
+
+    double clearedDouble = 0;
+
+    int diff;
 };
 
 #endif // FEERECEIPT_H
+
+
+
+
+

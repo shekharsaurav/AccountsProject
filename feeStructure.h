@@ -16,6 +16,22 @@ class FeeStructure
     double devlpFee;
     double compFee;
     double lateFee;
+    double duesRegFee;
+    double duesTutFee;
+    double duesGenrFee;
+    double duesExamFee;
+    double duesReAddmFee;
+    double duesDevlpFee;
+    double duesCompFee;
+    double duesLateFee;
+    double depRegFee;
+    double depTutFee;
+    double depGenrFee;
+    double depExamFee;
+    double depReAddmFee;
+    double depDevlpFee;
+    double depCompFee;
+    double depLateFee;
 
 public :
     FeeStructure();
@@ -27,6 +43,8 @@ public :
     void setFeeStructure(double rf, double tf, double gf, double ef, double raf, double df, double cf, double lf);
 
     friend class FeeStructurePage;
+
+    friend class FeeReceipt;
 
 };
 
