@@ -37,7 +37,7 @@ class Students : public Standard
 public:
 //    Students(long rno, QDate rdate, QString nam, QDate dob, bool gen, QString nat, QString rel, QString blood,
 //             QString mother, QString father, Address add, QString email, long contact1, long contact2, int roll, QString image);
-
+    Students();
 
     void setStudent(long rno, QDate rdate, QString nam, QDate dob, bool gen, QString nat, QString rel, QString blood,
                     QString mother, QString ocMot, QString father, QString ocFat, Address add, QString email, long contact1, long contact2, int roll, QString image);
@@ -52,6 +52,7 @@ public:
     friend class UpdateStudentProfile;
 
     friend class FeeReceipt;
+
 };
 
 #endif // STUDENTS_H

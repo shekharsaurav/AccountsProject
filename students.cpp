@@ -1,9 +1,6 @@
 #include "students.h"
 #include "address.h"
 
-#include <QDate>
-#include <QString>
-
 //Students::Students(long rno, QDate rdate, QString nam, QDate dob, bool gen, QString nat, QString rel, QString blood, QString mother,
 //                   QString father, Address add, QString email, long contact1, long contact2, int roll, QString image)
 //{
@@ -23,6 +20,28 @@
 //    this->roll = roll;
 //    this->image = image;
 //}
+
+Students::Students()
+{
+    regNo = 0;
+    regDate = QDate::currentDate();
+    name = "";
+    dob = QDate::currentDate();
+    gender = "";
+    nationality = "";
+    religion = "";
+    bloodGrp = "";
+    mother = "";
+    occpMother = "";
+    father = "";
+    occpFather = "";
+    email = "";
+    contact1 = 0;
+    contact2 = 0;
+    roll = 0;
+    image = "";
+    std = "";
+}
 
 void Students::setStudent(long rno, QDate rdate, QString nam, QDate dob, bool gen, QString nat, QString rel, QString blood,
                           QString mother, QString ocMot, QString father, QString ocFat, Address add, QString email, long contact1, long contact2, int roll, QString image)

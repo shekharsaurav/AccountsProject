@@ -37,11 +37,11 @@ private slots:
 
     void on_cbMonth_currentIndexChanged(int index);
 
-    void updateFeeDues(int curMonth);
+    void updateFeeDues();
 
-    void on_twFeeReceipt_itemEntered(QTableWidgetItem *item);
+    void updateStudentsFeeDeposite();
 
-//    void on_twFeeReceipt_itemChanged(QTableWidgetItem *item);
+    void on_twFeeReceipt_cellActivated(int row, int column);
 
 private:
     Ui::FeeReceipt *ui;
@@ -55,6 +55,13 @@ private:
     QString str;
 
     FeeStructure feeStruc;
+
+//    Students stud;
+    long regNo;
+
+    QString name;
+
+    int month;
 
     QTableWidgetItem *duesItem[11];
 
@@ -73,9 +80,15 @@ private:
     double clearedDouble = 0;
 
     int diff;
+
+    long receiptNo;
 };
 
 #endif // FEERECEIPT_H
+
+
+
+
 
 
 

@@ -24,6 +24,7 @@ class FeeStructure
     double duesDevlpFee;
     double duesCompFee;
     double duesLateFee;
+    double duesMisc;
     double depRegFee;
     double depTutFee;
     double depGenrFee;
@@ -32,6 +33,8 @@ class FeeStructure
     double depDevlpFee;
     double depCompFee;
     double depLateFee;
+    double depMisc;
+    double depPrevDues;
 
 public :
     FeeStructure();
