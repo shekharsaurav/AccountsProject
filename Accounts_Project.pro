@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     updatestudentprofile.cpp \
     feeStructurePage.cpp \
     getFeeStructureDialog.cpp \
-    feeReceipt.cpp
+    feeReceipt.cpp \
+    monthlyReport.cpp
 
 HEADERS  += homescreen.h \
     admin.h \
@@ -46,7 +47,8 @@ HEADERS  += homescreen.h \
     updatestudentprofile.h \
     feeStructurePage.h \
     getFeeStructureDialog.h \
-    feeReceipt.h
+    feeReceipt.h \
+    monthlyReport.h
 
 FORMS    += homescreen.ui \
     adminWindow.ui \
@@ -56,4 +58,5 @@ FORMS    += homescreen.ui \
     updatestudentprofile.ui \
     feeStructurePage.ui \
     getFeeStructureDialog.ui \
-    feeReceipt.ui
+    feeReceipt.ui \
+    monthlyReport.ui

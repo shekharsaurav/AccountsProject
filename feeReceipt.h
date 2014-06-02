@@ -37,7 +37,7 @@ private slots:
 
     void on_cbMonth_currentIndexChanged(int index);
 
-    void updateFeeDues();
+    int updateFeeDues();
 
     void updateStudentsFeeDeposite();
 
@@ -59,6 +59,8 @@ private:
 //    Students stud;
     long regNo;
 
+    int rep;
+
     QString name;
 
     int month;
@@ -77,7 +79,7 @@ private:
 
     double totalDeposite = 0;
 
-    double clearedDouble = 0;
+    double totalCleared = 0;
 
     int diff;
 

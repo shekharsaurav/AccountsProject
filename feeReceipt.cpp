@@ -11,9 +11,6 @@
 
 #include "feeReceipt.h"
 #include "students.h"
-//#include "ui_feeReceipt.h"
-//#include "dbConnection.h"
-//#include "feeStructure.h"
 
 using namespace std;
 
@@ -82,7 +79,7 @@ FeeReceipt::~FeeReceipt()
              feeStruc.compFee = query.value(8).toDouble();
              stmt.sprintf("SELECT COUNT(*) FROM reg%ld;", regdNo);
              query.exec(stmt);
-             if(query.nextResult() == 0)
+             if(!query.next())
              {
                  totalCurrent += feeStruc.regFee;
                  str = QString::number(feeStruc.regFee);
@@ -90,8 +87,9 @@ FeeReceipt::~FeeReceipt()
              }
              else
              {
-                 updateFeeDues();
+                 rep = updateFeeDues();
                  totalCurrent += totalDues;
+//                 cout<<"\nDues::"<<totalDues<<"\nDeposite::"<<totalCurrent<<"\n";
                  str = QString::number(totalDues);
                  currentItem[5]->setText(str);
                  duesItem[9]->setText(str);
@@ -113,19 +111,22 @@ FeeReceipt::~FeeReceipt()
                  duesItem[8]->setText(str);
 
              }
-             totalCurrent += feeStruc.tutFee;
-             str = QString::number(feeStruc.tutFee);
-             currentItem[1]->setText(str);
-             totalCurrent += feeStruc.devlpFee;
-             str = QString::number(feeStruc.devlpFee);
-             currentItem[6]->setText(str);
-             totalCurrent += feeStruc.compFee;
-             str = QString::number(feeStruc.compFee);
-             currentItem[7]->setText(str);
+             if(rep > 0)
+             {
+                totalCurrent += feeStruc.tutFee;
+                str = QString::number(feeStruc.tutFee);
+                currentItem[1]->setText(str);
+                totalCurrent += feeStruc.devlpFee;
+                str = QString::number(feeStruc.devlpFee);
+                currentItem[6]->setText(str);
+                totalCurrent += feeStruc.compFee;
+                str = QString::number(feeStruc.compFee);
+                currentItem[7]->setText(str);
+             }
              str = QString::number(totalCurrent);
              currentItem[9]->setText(str);
          }
-         stmt = "SELECT receiptNo FROM feereceipt ORDER BY DESC LIMIT 1;";
+         stmt = "SELECT receiptNo FROM feereceipt ORDER BY receiptNo DESC LIMIT 1;";
          query.exec(stmt);
          if(query.next())
          {
@@ -167,7 +168,7 @@ void FeeReceipt::on_pbReset_clicked()
 {
     try
     {
-        for(int i =0; i<=8; i++)
+        for(int i = 0; i<=9; i++)
         {
             depositeItem[i]->setText("");
             clearedItem[i]->setText("");
@@ -222,23 +223,34 @@ void FeeReceipt::on_pbDeposite_clicked()
             case 12: month = 3;
             break;
         }
-
-        stmt.sprintf("INSERT INTO feereceipt VALUES (%ld, \"%s\", %d, %ld, %ld, \"%s\", %ld, %ld, %ld , %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld;",
+        try
+        {
+            stmt.sprintf("INSERT INTO feereceipt VALUES (%ld, \"%s\", %d, %ld, \"%s\", %f, %f, %f , %f, %f, %f, %f, %f, %f, %f, %f);",
                      ui->leReceipNo->text().toLong(), ui->deReceiptDate->date().toString("yyyy-MM-dd").toStdString().c_str(), month,
                      regNo, name.toStdString().c_str(), feeStruc.depRegFee, feeStruc.depTutFee, feeStruc.depGenrFee,
                      feeStruc.depExamFee, feeStruc.depReAddmFee, feeStruc.depLateFee, feeStruc.depDevlpFee, feeStruc.depCompFee,
                      feeStruc.depMisc, feeStruc.depPrevDues, totalDeposite);
 
-        query.exec(stmt);
-        if(query.numRowsAffected() != -1)
-        {
-            pUi->statusBar->showMessage(" Receipt Added!!");
+            query.exec(stmt);
+            if(query.numRowsAffected() != -1)
+            {
+                pUi->statusBar->showMessage(" Receipt Added!!");
+                updateStudentsFeeDeposite();
+                ui->pbDeposite->setEnabled(false);
+                ui->twFeeReceipt->setDisabled(true);
+                ui->cbExamFee->setDisabled(true);
+                ui->cbReAddmFee->setDisabled(true);
+                ui->pbPrint->setEnabled(true);
+            }
+            else
+            {
+                QMessageBox::critical(this, tr("Receipt submission failed!"), query.lastError().text(), QMessageBox::Ok);
+            }
         }
-        else
+        catch(exception& e)
         {
-            QMessageBox::critical(this, tr("Receipt submission failed!"), tr("Receipt Submission Failed!"), QMessageBox::Ok);
+            cout<<"\n"<<e.what();
         }
-        updateStudentsFeeDeposite();
     }
 }
 
@@ -282,28 +294,37 @@ void FeeReceipt::on_cbReAddmFee_stateChanged(int arg1)
 
 void FeeReceipt::on_cbMonth_currentIndexChanged(int index)
 {
+    int flagSet = 0;
     if( index == 0)
     {
         QMessageBox::warning(this, tr("Month Feild empty!"), tr("Please select the month uptill which the fee is to be deposited!"), QMessageBox::Ok);
     }
     else if (index == 1 || index == 2 || index == 4 || index == 5 || index == 6 || index ==7)
     {
-        str = QString::number(feeStruc.genrFee);
-        currentItem[2]->setText(str);
-        totalCurrent += feeStruc.genrFee;
-        str = QString::number(totalCurrent);
-        currentItem[9]->setText(str);
+        if(rep > 0)
+        {
+            str = QString::number(feeStruc.genrFee);
+            currentItem[2]->setText(str);
+            totalCurrent += feeStruc.genrFee;
+            str = QString::number(totalCurrent);
+            currentItem[9]->setText(str);
+            flagSet = 1;
+        }
     }
     else
     {
-        currentItem[2]->setText("");        
-        totalCurrent -= feeStruc.genrFee;
-        str = QString::number(totalCurrent);
-        currentItem[9]->setText(str);
+        if(flagSet == 1)
+        {
+            currentItem[2]->setText("");
+            totalCurrent -= feeStruc.genrFee;
+            str = QString::number(totalCurrent);
+            currentItem[9]->setText(str);
+            flagSet = 0;
+        }
     }
 }
 
-void FeeReceipt::updateFeeDues()
+int FeeReceipt::updateFeeDues()
 {
     stmt.sprintf("SELECT * FROM reg%ld ORDER BY receiptNo DESC LIMIT 1;", regNo);
     query.exec(stmt);
@@ -325,22 +346,22 @@ void FeeReceipt::updateFeeDues()
        feeStruc.depGenrFee = query.value(7).toDouble();
        feeStruc.depExamFee = query.value(9).toDouble();
        feeStruc.depReAddmFee = query.value(11).toDouble();
-       feeStruc.depLateFee = query.value(13).toDouble();
-       feeStruc.depDevlpFee = query.value(15).toDouble();
-       feeStruc.depCompFee = query.value(17).toDouble();
-       feeStruc.depMisc = query.value(19).toDouble();
-       totalDeposite = query.value(21).toDouble();
+//       feeStruc.depLateFee = query.value(13).toDouble();
+       feeStruc.depDevlpFee = query.value(13).toDouble();
+       feeStruc.depCompFee = query.value(15).toDouble();
+       feeStruc.depMisc = query.value(17).toDouble();
+       totalDeposite = query.value(19).toDouble();
 
        feeStruc.duesRegFee = query.value(2).toDouble();
        feeStruc.duesTutFee = query.value(4).toDouble();
        feeStruc.duesGenrFee = query.value(6).toDouble();
        feeStruc.duesExamFee = query.value(8).toDouble();
        feeStruc.duesReAddmFee = query.value(10).toDouble();
-       feeStruc.duesLateFee = query.value(12).toDouble();
-       feeStruc.duesDevlpFee = query.value(14).toDouble();
-       feeStruc.duesCompFee = query.value(16).toDouble();
-       feeStruc.duesMisc = query.value(18).toDouble();
-       totalDues = query.value(20).toDouble();
+//       feeStruc.duesLateFee = query.value(12).toDouble();
+       feeStruc.duesDevlpFee = query.value(12).toDouble();
+       feeStruc.duesCompFee = query.value(14).toDouble();
+       feeStruc.duesMisc = query.value(16).toDouble();
+       totalDues = query.value(18).toDouble();
 
        if(curMonth - mon <= 1 )
        {
@@ -349,11 +370,12 @@ void FeeReceipt::updateFeeDues()
            feeStruc.duesGenrFee -= feeStruc.depGenrFee;
            feeStruc.duesExamFee -= feeStruc.depExamFee;
            feeStruc.duesReAddmFee -= feeStruc.depReAddmFee;
-           feeStruc.duesLateFee -= feeStruc.depLateFee;
+//           feeStruc.duesLateFee -= feeStruc.depLateFee;
            feeStruc.duesDevlpFee -= feeStruc.depDevlpFee;
            feeStruc.duesCompFee -= feeStruc.depCompFee;
            feeStruc.duesMisc -= feeStruc.depMisc;
            totalDues -= totalDeposite;
+           return diff;
        }
        else
        {
@@ -379,15 +401,15 @@ void FeeReceipt::updateFeeDues()
                     feeStruc.duesExamFee = feeStruc.duesExamFee - feeStruc.depExamFee;
                 }
                 feeStruc.duesReAddmFee = feeStruc.duesReAddmFee - feeStruc.depReAddmFee;
-                feeStruc.duesLateFee = feeStruc.duesLateFee - feeStruc.depLateFee;
+//                feeStruc.duesLateFee = feeStruc.duesLateFee - feeStruc.depLateFee;
                 feeStruc.duesDevlpFee = feeStruc.duesDevlpFee + feeStruc.devlpFee - feeStruc.depDevlpFee;
                 feeStruc.duesCompFee = feeStruc.duesCompFee + feeStruc.compFee - feeStruc.depCompFee;
                 feeStruc.duesMisc = feeStruc.duesMisc - feeStruc.depMisc;
                 totalDues = feeStruc.duesRegFee + feeStruc.duesTutFee + feeStruc.duesGenrFee + feeStruc.duesExamFee +
                         feeStruc.duesReAddmFee + feeStruc.duesLateFee + feeStruc.duesDevlpFee + feeStruc.duesCompFee + feeStruc.duesMisc;
-                stmt.sprintf("INSERT INTO reg\"%s\" VALUES (%d, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld);",
+                stmt.sprintf("INSERT INTO reg\"%s\" VALUES (%d, %ld, %ld, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f,  %f, %f, %f, %f, %f, %f, %f, %f);",
                              regNo, dueMonth, 0, feeStruc.duesRegFee, 0, feeStruc.duesTutFee, 0, feeStruc.duesGenrFee, 0, feeStruc.duesExamFee, 0, feeStruc.duesReAddmFee, 0,
-                             feeStruc.duesLateFee, 0, feeStruc.duesDevlpFee, 0, feeStruc.duesCompFee, 0, feeStruc.duesMisc, 0, totalDues, 0);
+                             feeStruc.duesDevlpFee, 0, feeStruc.duesCompFee, 0, feeStruc.duesMisc, 0, totalDues, 0);
                 query.exec(stmt);
                 if(query.numRowsAffected() != -1)
                     cout<<"Databases Updated";
@@ -398,62 +420,100 @@ void FeeReceipt::updateFeeDues()
                 feeStruc.depGenrFee= 0;
                 feeStruc.depExamFee = 0;
                 feeStruc.depReAddmFee = 0;
-                feeStruc.depLateFee = 0;
+//                feeStruc.depLateFee = 0;
                 feeStruc.depCompFee = 0;
                 feeStruc.depMisc = 0;
                 feeStruc.depDevlpFee = 0;
 
                 diff--;
-            }
-        }
+           }
+       }
     }
+    return INT_MAX;
 }
 
 
 void FeeReceipt::on_twFeeReceipt_cellActivated(int row, int column)
 {
-    static double prevMisc = 0;
-    if (column == 2 && row == 8)
+    int i;
+    if (column == 1)
     {
-        totalCurrent -= prevMisc;
-        totalCurrent += currentItem[8]->text().toDouble();
-        prevMisc = currentItem[8]->text().toDouble();
+        totalDues = 0;
+        for(i = 0; i < 9; i++)
+            totalDues += duesItem[i]->text().toDouble();
+        str = QString::number(totalDues);
+        duesItem[9]->setText(str);
+    }
+    else if(column == 2)
+    {
+        totalCurrent = 0;
+        for(i = 0; i < 9; i++)
+            totalCurrent += currentItem[i]->text().toDouble();
+
+//        totalCurrent += currentItem[8]->text().toDouble();
+//        prevMisc = currentItem[8]->text().toDouble();
         str = QString::number(totalCurrent);
         currentItem[9]->setText(str);
+    }
+    else if(column == 3)
+    {
+        totalDeposite = 0;
+        for(i = 0; i < 9; i++)
+            totalDeposite += depositeItem[i]->text().toDouble();
+        str = QString::number(totalDeposite);
+        depositeItem[9]->setText(str);
+    }
+    else if(column == 4)
+    {
+        totalCleared = 0;
+        for(i = 0; i < 9; i++)
+            totalCleared += clearedItem[i]->text().toDouble();
+        str = QString::number(totalCleared);
+        clearedItem[9]->setText(str);
     }
 }
 
 void FeeReceipt::updateStudentsFeeDeposite()
 {
-    feeStruc.duesRegFee = duesItem[0]->text().toDouble() + currentItem[0]->text().toDouble();
-    feeStruc.duesTutFee = duesItem[1]->text().toDouble() + currentItem[1]->text().toDouble();
-    feeStruc.duesGenrFee = duesItem[2]->text().toDouble() + currentItem[2]->text().toDouble();
-    feeStruc.duesExamFee = duesItem[3]->text().toDouble() + currentItem[3]->text().toDouble();
-    feeStruc.duesReAddmFee = duesItem[4]->text().toDouble() + currentItem[4]->text().toDouble();
-    feeStruc.duesDevlpFee = duesItem[6]->text().toDouble() + currentItem[6]->text().toDouble();
-    feeStruc.duesCompFee = duesItem[7]->text().toDouble() + currentItem[7]->text().toDouble();
-    feeStruc.duesMisc = duesItem[8]->text().toDouble() + currentItem[8]->text().toDouble();
-    totalDues = feeStruc.duesRegFee + feeStruc.duesTutFee + feeStruc.duesGenrFee + feeStruc.duesExamFee +
-            feeStruc.duesReAddmFee +  feeStruc.duesDevlpFee + feeStruc.duesCompFee + feeStruc.duesMisc;
-    feeStruc.depRegFee = depositeItem[0]->text().toDouble() + clearedItem[0]->text().toDouble();
-    feeStruc.depTutFee = depositeItem[1]->text().toDouble() + clearedItem[1]->text().toDouble();
-    feeStruc.depGenrFee = depositeItem[2]->text().toDouble() + clearedItem[2]->text().toDouble();
-    feeStruc.depExamFee = depositeItem[3]->text().toDouble() + clearedItem[3]->text().toDouble();
-    feeStruc.depReAddmFee = depositeItem[4]->text().toDouble() + clearedItem[4]->text().toDouble();
-    feeStruc.depDevlpFee = depositeItem[6]->text().toDouble() + clearedItem[6]->text().toDouble();
-    feeStruc.depCompFee = depositeItem[7]->text().toDouble() + clearedItem[7]->text().toDouble();
-    feeStruc.depMisc = depositeItem[8]->text().toDouble() + clearedItem[8]->text().toDouble();
-    totalDeposite = feeStruc.depRegFee + feeStruc.depTutFee + feeStruc.depGenrFee + feeStruc.depExamFee +
-            feeStruc.depReAddmFee + feeStruc.depDevlpFee + feeStruc.depCompFee + feeStruc.depMisc;
-    stmt.sprintf("INSERT INTO reg\"%s\" VALUES (%d, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld);",
-                 regNo, month, feeStruc.depRegFee, feeStruc.duesRegFee, feeStruc.depTutFee, feeStruc.duesTutFee, feeStruc.depGenrFee, feeStruc.duesGenrFee,
-                 feeStruc.depGenrFee, feeStruc.duesExamFee, feeStruc.depExamFee, feeStruc.duesReAddmFee, feeStruc.depReAddmFee, feeStruc.duesLateFee, 0,
-                 feeStruc.duesDevlpFee, feeStruc.depDevlpFee, feeStruc.duesCompFee, feeStruc.depCompFee, feeStruc.duesMisc, feeStruc.depMisc, totalDues, totalDeposite);
-    query.exec(stmt);
-    if(query.numRowsAffected() != -1)
-        cout<<"Databases Updated";
-    else
-        cout<<"Database UPdate failed";
+    try
+    {
+
+        feeStruc.duesRegFee = duesItem[0]->text().toDouble() + currentItem[0]->text().toDouble();
+        feeStruc.duesTutFee = duesItem[1]->text().toDouble() + currentItem[1]->text().toDouble();
+        feeStruc.duesGenrFee = duesItem[2]->text().toDouble() + currentItem[2]->text().toDouble();
+        feeStruc.duesExamFee = duesItem[3]->text().toDouble() + currentItem[3]->text().toDouble();
+        feeStruc.duesReAddmFee = duesItem[4]->text().toDouble() + currentItem[4]->text().toDouble();
+        feeStruc.duesDevlpFee = duesItem[6]->text().toDouble() + currentItem[6]->text().toDouble();
+        feeStruc.duesCompFee = duesItem[7]->text().toDouble() + currentItem[7]->text().toDouble();
+        feeStruc.duesMisc = duesItem[8]->text().toDouble() + currentItem[8]->text().toDouble();
+        totalDues = feeStruc.duesRegFee + feeStruc.duesTutFee + feeStruc.duesGenrFee + feeStruc.duesExamFee +
+                feeStruc.duesReAddmFee +  feeStruc.duesDevlpFee + feeStruc.duesCompFee + feeStruc.duesMisc;
+
+        feeStruc.depRegFee = depositeItem[0]->text().toDouble() + clearedItem[0]->text().toDouble();
+        feeStruc.depTutFee = depositeItem[1]->text().toDouble() + clearedItem[1]->text().toDouble();
+        feeStruc.depGenrFee = depositeItem[2]->text().toDouble() + clearedItem[2]->text().toDouble();
+        feeStruc.depExamFee = depositeItem[3]->text().toDouble() + clearedItem[3]->text().toDouble();
+        feeStruc.depReAddmFee = depositeItem[4]->text().toDouble() + clearedItem[4]->text().toDouble();
+        feeStruc.depDevlpFee = depositeItem[6]->text().toDouble() + clearedItem[6]->text().toDouble();
+        feeStruc.depCompFee = depositeItem[7]->text().toDouble() + clearedItem[7]->text().toDouble();
+        feeStruc.depMisc = depositeItem[8]->text().toDouble() + clearedItem[8]->text().toDouble();
+        totalDeposite = feeStruc.depRegFee + feeStruc.depTutFee + feeStruc.depGenrFee + feeStruc.depExamFee +
+                feeStruc.depReAddmFee + feeStruc.depDevlpFee + feeStruc.depCompFee + feeStruc.depMisc;
+            stmt.sprintf("INSERT INTO reg%ld VALUES (%d, %ld, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f);",
+                     regNo, month, ui->leReceipNo->text().toLong(), feeStruc.duesRegFee, feeStruc.depRegFee, feeStruc.duesTutFee, feeStruc.depTutFee, feeStruc.duesGenrFee, feeStruc.depGenrFee,
+                     feeStruc.duesExamFee, feeStruc.depExamFee, feeStruc.duesReAddmFee, feeStruc.depReAddmFee, feeStruc.duesDevlpFee, feeStruc.depDevlpFee, feeStruc.duesCompFee, feeStruc.depCompFee,
+                     feeStruc.duesMisc, feeStruc.depMisc, totalDues, totalDeposite);
+        query.exec(stmt);
+        if(query.numRowsAffected() != -1)
+            pUi->statusBar->showMessage("Databases Updated", 5000);
+        else
+            pUi->statusBar->showMessage("Database Update failed", 5000);
+
+    }
+    catch(exception& e)
+    {
+        QMessageBox::critical(this, tr("Datatbase Issue"), e.what(), QMessageBox::Ok);
+    }
 }
 
 

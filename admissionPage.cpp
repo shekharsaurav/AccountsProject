@@ -124,7 +124,7 @@ void AdmissionPage::on_pbSubmit_clicked()
                  QMessageBox::critical(0, tr("Submission failed"), query.lastError().text());
                  pUi->statusBar->showMessage(tr(" Submission failed!"), 5000 );
             }
-            stmt.sprintf("CREATE TABLE reg%ld (month INT, receiptNo BIGINT, regFeeDues DOUBLE, regFeeDep DOUBLE, tutFeeDues DOUBLE, tutFeeDep DOUBLE, genFeeDues DOUBLE, genFeeDep DOUBLE, examFeeDues DOUBLE, examFeeDep DOUBLE, reAddFeeDues DOUBLE, reAddFeeDep DOUBLE, lateFeeDues DOUBLE, lateFeeDep DOUBLE, devlpFeeDues DOUBLE, devlpFeeDep DOUBLE, compFeeDues DOUBLE, compFeeDep DOUBLE, miscDues DOUBLE, miscDep DOUBLE, TotDues DOUBLE, TotDep Double);", studx.regNo);
+            stmt.sprintf("CREATE TABLE reg%ld (month INT, receiptNo BIGINT, regFeeDues DOUBLE, regFeeDep DOUBLE, tutFeeDues DOUBLE, tutFeeDep DOUBLE, genFeeDues DOUBLE, genFeeDep DOUBLE, examFeeDues DOUBLE, examFeeDep DOUBLE, reAddFeeDues DOUBLE, reAddFeeDep DOUBLE, devlpFeeDues DOUBLE, devlpFeeDep DOUBLE, compFeeDues DOUBLE, compFeeDep DOUBLE, miscDues DOUBLE, miscDep DOUBLE, TotDues DOUBLE, TotDep Double);", studx.regNo);
             query.exec(stmt);
             QSqlDatabase::database().commit();
             result = query.numRowsAffected();
