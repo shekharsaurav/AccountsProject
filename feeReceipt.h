@@ -11,6 +11,7 @@
 #include "feeStructure.h"
 #include "ui_adminWindow.h"
 #include "students.h"
+#include "monthlyReport.h"
 
 class FeeReceipt : public QWidget
 {
@@ -84,6 +85,10 @@ private:
     int diff;
 
     long receiptNo;
+
+    MonthlyReport *mReport;
+
+    bool status = false;
 };
 
 #endif // FEERECEIPT_H

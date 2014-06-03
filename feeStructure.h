@@ -49,6 +49,8 @@ public :
 
     friend class FeeReceipt;
 
+    friend class MonthlyReport;
+
 };
 
 

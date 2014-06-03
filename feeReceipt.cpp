@@ -77,13 +77,14 @@ FeeReceipt::~FeeReceipt()
              feeStruc.reAddmFee = query.value(5).toDouble();
              feeStruc.devlpFee = query.value(7).toDouble();
              feeStruc.compFee = query.value(8).toDouble();
-             stmt.sprintf("SELECT COUNT(*) FROM reg%ld;", regdNo);
+             stmt.sprintf("SELECT * FROM reg%ld;", regdNo);
              query.exec(stmt);
              if(!query.next())
              {
                  totalCurrent += feeStruc.regFee;
                  str = QString::number(feeStruc.regFee);
                  currentItem[0]->setText(str);
+                 status = true;
              }
              else
              {
@@ -152,7 +153,7 @@ FeeReceipt::~FeeReceipt()
      }
      else
      {
-         QMessageBox::critical(0, QObject::tr("INVALID REGISTRATION NUMBER!!"), query.lastError().text());
+         QMessageBox::critical(0, QObject::tr("INVALID REGISTRATION NUMBER!!"), query.lastError().text(),  QMessageBox::Ok);
          delete this;
      }
      ui->pbReset->setEnabled(true);
@@ -232,9 +233,31 @@ void FeeReceipt::on_pbDeposite_clicked()
                      feeStruc.depMisc, feeStruc.depPrevDues, totalDeposite);
 
             query.exec(stmt);
+            mReport = new MonthlyReport(pUi);
             if(query.numRowsAffected() != -1)
             {
                 pUi->statusBar->showMessage(" Receipt Added!!");
+                if(!status)
+                {
+                    status = mReport->updateReport(month, QDate::currentDate().year(), false, feeStruc.depTutFee, feeStruc.depGenrFee, feeStruc.depExamFee,
+                                         currentItem[4]->text().toDouble(), feeStruc.depReAddmFee, feeStruc.depDevlpFee, feeStruc.depCompFee, currentItem[8]->text().toDouble(),
+                                         feeStruc.depMisc, feeStruc.depPrevDues);
+                    if(status)
+                    {
+                        pUi->statusBar->showMessage("Monthly Report Updated", 5000);
+                    }
+                }
+                else
+                {
+                    status = mReport->updateReport(month, QDate::currentDate().year(), true, feeStruc.depTutFee, feeStruc.depGenrFee, feeStruc.depExamFee,
+                                                  currentItem[4]->text().toDouble(), feeStruc.depReAddmFee, feeStruc.depDevlpFee, feeStruc.depCompFee, currentItem[8]->text().toDouble(),
+                                                  feeStruc.depMisc, feeStruc.depPrevDues, feeStruc.depRegFee, currentItem[0]->text().toDouble(), currentItem[1]->text().toDouble(), currentItem[2]->text().toDouble(),
+                            currentItem[3]->text().toDouble(), currentItem[6]->text().toDouble(), currentItem[7]->text().toDouble());
+                    if(status)
+                    {
+                        pUi->statusBar->showMessage("Monthly Report Updated", 5000);
+                    }
+                }
                 updateStudentsFeeDeposite();
                 ui->pbDeposite->setEnabled(false);
                 ui->twFeeReceipt->setDisabled(true);
@@ -504,8 +527,8 @@ void FeeReceipt::updateStudentsFeeDeposite()
                      feeStruc.duesExamFee, feeStruc.depExamFee, feeStruc.duesReAddmFee, feeStruc.depReAddmFee, feeStruc.duesDevlpFee, feeStruc.depDevlpFee, feeStruc.duesCompFee, feeStruc.depCompFee,
                      feeStruc.duesMisc, feeStruc.depMisc, totalDues, totalDeposite);
         query.exec(stmt);
-        if(query.numRowsAffected() != -1)
-            pUi->statusBar->showMessage("Databases Updated", 5000);
+        if(query.numRowsAffected() != -1);
+//            pUi->statusBar->showMessage("Databases Updated", 5000);
         else
             pUi->statusBar->showMessage("Database Update failed", 5000);
 
